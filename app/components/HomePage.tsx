@@ -7,7 +7,12 @@ import ExternalLink from "./ExternalLink";
 import WorkflowDiagram from "./diagrams/WorkflowDiagram";
 import { SITE } from "@/lib/site";
 import { EARLIER } from "@/lib/earlier";
-import { DICT, getProjects, type Locale } from "@/lib/i18n";
+import { CLIENT_SITES, ARTIST } from "@/lib/clients";
+import { PAYMENTS } from "@/lib/payments";
+import { asset } from "@/lib/asset";
+import { DICT, getProjects, localePath, type Locale } from "@/lib/i18n";
+
+const WHATSAPP = "https://wa.me/573178530602";
 
 const totalTests = 723 + 165 + 164 + 230 + 87 + 93 + 13 + 42; // each figure is stated in its project's repo
 
@@ -23,6 +28,7 @@ const ICONS = {
   mail: "M4 6h16v12H4zM4 7l8 6 8-6",
   linkedin: "M5 9v10M5 5v.01M10 19v-6a3 3 0 0 1 6 0v6M10 10v9",
   github: "M9 19c-4 1.5-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6 0C6.8 2.8 5.8 3.1 5.8 3.1a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21",
+  whatsapp: "M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3L3 21zM9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2L9 8.5z",
   globe: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z",
 };
 
@@ -35,7 +41,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
   const stats = [
     { value: `${projects.length}`, label: t.stats.systems },
     { value: `${Math.floor(totalTests / 100) * 100}+`, label: t.stats.tests },
-    { value: "EN/ES", label: t.stats.stack },
+    { value: `${CLIENT_SITES.length}`, label: t.stats.clients },
     { value: "10+", label: t.stats.years },
   ];
 
@@ -44,6 +50,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
     { href: SITE.linkedin, label: "LinkedIn", value: "in/dgomezbuiles", icon: ICONS.linkedin, external: true },
     { href: SITE.github, label: "GitHub", value: "github.com/alejo21ny", icon: ICONS.github, external: true },
     { href: SITE.gwork, label: t.contact.website, value: "gworksystems.com", icon: ICONS.globe, external: true },
+    { href: WHATSAPP, label: t.contact.whatsapp, value: "+57 317 853 0602", icon: ICONS.whatsapp, external: true },
   ];
 
   return (
@@ -60,7 +67,17 @@ export default function HomePage({ locale }: { locale: Locale }) {
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse-soft" aria-hidden />
               {t.badge}
             </p>
-            <h1 className="mb-4 text-4xl font-semibold tracking-tight sm:text-6xl animate-fade-up">{SITE.name}</h1>
+            <div className="mb-4 flex items-center gap-4 animate-fade-up sm:gap-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={asset("/profile.jpg")}
+                alt={SITE.name}
+                width={304}
+                height={331}
+                className="h-16 w-16 shrink-0 rounded-full border-2 border-accent/60 bg-white object-cover object-top sm:h-20 sm:w-20"
+              />
+              <h1 className="text-4xl font-semibold tracking-tight sm:text-6xl">{SITE.name}</h1>
+            </div>
             <p className="mb-6 text-xl text-accent sm:text-2xl animate-fade-up">{t.role}</p>
             <p className="mb-8 max-w-xl text-lg text-foreground/85 animate-fade-up">{t.statement}</p>
 
@@ -78,7 +95,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 {t.hero.secondary}
               </Link>
               <div className="flex items-center gap-1 px-1 text-muted">
-                {contacts.slice(1).map((c) => (
+                {contacts.slice(1, 4).map((c) => (
                   <ExternalLink
                     key={c.href}
                     href={c.href}
@@ -152,6 +169,91 @@ export default function HomePage({ locale }: { locale: Locale }) {
         </div>
       </Section>
 
+      <Section id="payments" eyebrow={t.payments.eyebrow} title={t.payments.title}>
+        <p className="-mt-4 mb-8 max-w-2xl text-muted">{t.payments.intro}</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {PAYMENTS.map((pay) => (
+            <div
+              key={pay.gateway}
+              className={`flex flex-col rounded-xl border bg-surface p-5 ${pay.status === "in-progress" ? "border-dashed border-accent/50" : "border-border"}`}
+            >
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <h3 className="text-xl font-semibold tracking-tight">{pay.gateway}</h3>
+                <span
+                  className={`rounded-full border px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider ${
+                    pay.status === "shipped" ? "border-emerald-500/40 text-emerald-500" : "border-amber-500/40 text-amber-500"
+                  }`}
+                >
+                  {pay.status === "shipped" ? t.payments.shipped : t.payments.inProgress}
+                </span>
+              </div>
+              <p className="mb-4 text-sm text-muted">{pay.summary[locale]}</p>
+              <ul className="mb-4 space-y-1.5 text-sm text-foreground/85">
+                {pay.points[locale].map((pt) => (
+                  <li key={pt} className="flex gap-2">
+                    <span className="text-accent" aria-hidden>
+                      ›
+                    </span>
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-border pt-3 text-xs text-muted">
+                <span className="font-mono uppercase tracking-wider">{t.payments.usedIn}</span>
+                {pay.projects.map((pr) =>
+                  pr.href ? (
+                    <Link key={pr.name} href={localePath(locale, pr.href)} className="text-foreground hover:text-accent">
+                      {pr.name}
+                    </Link>
+                  ) : (
+                    <span key={pr.name} className="text-foreground">
+                      {pr.name}
+                    </span>
+                  ),
+                )}
+                {pay.link && (
+                  <ExternalLink href={pay.link.url} className="ml-auto text-accent hover:underline">
+                    {pay.link.label[locale]} ↗
+                  </ExternalLink>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6">
+          <WorkflowDiagram workflow={t.payments.flow} legend={t.caseStudy.legend} />
+        </div>
+      </Section>
+
+      <Section id="clients" eyebrow={t.clients.eyebrow} title={t.clients.title}>
+        <p className="-mt-4 mb-8 max-w-2xl text-muted">{t.clients.intro}</p>
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {CLIENT_SITES.map((c) => (
+            <li key={c.url}>
+              <ExternalLink
+                href={c.url}
+                className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent"
+              >
+                <span className="mb-3 flex items-center justify-between gap-2">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted">{c.industry[locale]}</span>
+                  <span className="text-xs text-muted transition-colors group-hover:text-accent">
+                    {t.clients.visit} ↗
+                  </span>
+                </span>
+                <span className="text-lg font-semibold tracking-tight group-hover:text-accent">{c.name}</span>
+                <span className="mb-1 font-mono text-xs text-muted">{c.url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</span>
+                <span className="mb-4 mt-2 text-sm text-muted">{c.summary[locale]}</span>
+                <span className="mt-auto flex flex-wrap gap-2">
+                  {c.tags.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
+                </span>
+              </ExternalLink>
+            </li>
+          ))}
+        </ul>
+      </Section>
+
       <Section id="process" eyebrow={t.process.eyebrow} title={t.process.title}>
         <p className="-mt-4 mb-8 max-w-2xl text-muted">{t.process.intro}</p>
         <WorkflowDiagram workflow={t.process.workflow} legend={t.caseStudy.legend} />
@@ -167,7 +269,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
       </Section>
 
       <Section id="expertise" eyebrow={t.expertise.eyebrow} title={t.expertise.title}>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {t.expertise.groups.map((group) => (
             <div key={group.title} className="rounded-xl border border-border bg-surface p-5">
               <div className="mb-4 flex items-center gap-3">
@@ -202,6 +304,19 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </ExternalLink>
               {t.about.gwork[1]}
             </p>
+            <p>
+              {t.about.artist[0]}
+              <span className="font-medium text-foreground">{ARTIST.name}</span>
+              {t.about.artist[1]}{" "}
+              {ARTIST.links.map((l, i) => (
+                <span key={l.url}>
+                  {i > 0 && " · "}
+                  <ExternalLink href={l.url} className="text-foreground underline decoration-border underline-offset-4 hover:decoration-accent">
+                    {l.label}
+                  </ExternalLink>
+                </span>
+              ))}
+            </p>
           </div>
 
           <div>
@@ -220,7 +335,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
 
       <Section id="contact" eyebrow={t.contact.eyebrow} title={t.contact.title}>
         <p className="-mt-4 mb-8 max-w-2xl text-muted">{t.contact.intro}</p>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {contacts.map((c) => {
             const content = (
               <>

@@ -24,15 +24,17 @@ type Dict = {
   theme: { light: string; dark: string };
   menu: string;
   hero: { primary: string; secondary: string };
-  stats: { systems: string; tests: string; stack: string; years: string };
+  stats: { systems: string; tests: string; clients: string; years: string };
   categories: Record<Project["category"], string>;
   systemMap: { center: [string, string]; nodes: [string, string][]; aria: string };
   work: { eyebrow: string; title: string; intro: string; earlier: string; earlierIntro: string };
   card: { cta: string; privateRepo: string; source: string; live: string };
+  clients: { eyebrow: string; title: string; intro: string; visit: string };
+  payments: { eyebrow: string; title: string; intro: string; shipped: string; inProgress: string; usedIn: string; flow: Workflow };
   process: { eyebrow: string; title: string; intro: string; workflow: Workflow; principles: Card[] };
   expertise: { eyebrow: string; title: string; groups: { title: string; icon: string; items: string[] }[] };
-  about: { eyebrow: string; title: string; paragraphs: string[]; gwork: [string, string]; workOnTitle: string; workOn: string[] };
-  contact: { eyebrow: string; title: string; intro: string; email: string; website: string };
+  about: { eyebrow: string; title: string; paragraphs: string[]; gwork: [string, string]; artist: [string, string]; workOnTitle: string; workOn: string[] };
+  contact: { eyebrow: string; title: string; intro: string; email: string; website: string; whatsapp: string };
   footer: { rights: string };
   caseStudy: {
     back: string;
@@ -77,8 +79,9 @@ const EN: Dict = {
   badge: "Full-stack · AI automation · Cloud — Medellín, CO",
   nav: [
     { href: "#work", label: "Work" },
+    { href: "#payments", label: "Payments" },
+    { href: "#clients", label: "Clients" },
     { href: "#process", label: "Process" },
-    { href: "#expertise", label: "Expertise" },
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
   ],
@@ -89,7 +92,7 @@ const EN: Dict = {
   stats: {
     systems: "systems with full case studies",
     tests: "automated tests across them",
-    stack: "bilingual delivery, English & Spanish",
+    clients: "client websites in production",
     years: "years in software & cloud",
   },
   categories: { Product: "Product", Platform: "Platform", Integration: "Integration", Automation: "Automation", Web: "Web" },
@@ -114,6 +117,32 @@ const EN: Dict = {
     earlierIntro: "Earlier and smaller builds — each links to its source.",
   },
   card: { cta: "Case study, diagrams & workflows", privateRepo: "private repo", source: "Source", live: "Live" },
+  clients: {
+    eyebrow: "Client websites",
+    title: "Production sites for real businesses",
+    intro: "WordPress and custom web work for healthcare, hospitality, recruitment, finance, education and non-profits — all live today.",
+    visit: "Visit site",
+  },
+  payments: {
+    eyebrow: "Payments",
+    title: "Payment integrations, done the safe way",
+    intro: "Wompi, PayU, ePayco — and Bold next for Sedona Scapes. Different providers, one pattern: money only moves on a verified, idempotent webhook.",
+    shipped: "Integrated",
+    inProgress: "In progress",
+    usedIn: "Used in",
+    flow: {
+      title: "One pattern for every gateway",
+      summary: "Provider-neutral adapters keep checkout, confirmation and accounting identical whichever gateway a client picks.",
+      steps: [
+        { label: "Quote & hold", detail: "price frozen, inventory held", kind: "guard" },
+        { label: "Hosted checkout", detail: "Wompi · PayU · Bold · ePayco", kind: "external" },
+        { label: "Signed webhook", detail: "signature / checksum verified", kind: "guard" },
+        { label: "Idempotent apply", detail: "deduped per provider event", kind: "auto" },
+        { label: "Ledger & reconciliation", detail: "append-only, mismatches flagged", kind: "data" },
+        { label: "Confirmation", detail: "guest / player notified", kind: "user" },
+      ],
+    },
+  },
   process: {
     eyebrow: "How I build",
     title: "AI-augmented, production-minded",
@@ -166,8 +195,10 @@ const EN: Dict = {
       { title: "AI & Automation", icon: "◇", items: ["LLM APIs & provider abstractions", "Grounded assistants", "Tool / function patterns", "AI-assisted delivery (agents)", "Scrapers & enrichment", "Schedulers & background jobs"] },
       { title: "Cloud & Platform", icon: "☁", items: ["Cloudflare Workers / Pages / R2 / KV", "AWS", "Azure", "Docker", "Terraform", "GitHub Actions"] },
       { title: "Data & Backend", icon: "▤", items: ["PostgreSQL / PostGIS", "Drizzle / SQLAlchemy / Eloquent", "Neon", "Azure Data Factory", "Databricks", "PySpark"] },
-      { title: "Payments & Integrations", icon: "⇄", items: ["Wompi", "PayU", "HubSpot", "Google OAuth", "Webhooks & idempotency", "Push (Expo / FCM)"] },
+      { title: "Payments & Integrations", icon: "⇄", items: ["Wompi", "PayU", "ePayco", "Bold", "HubSpot", "Google OAuth", "Webhooks & idempotency", "Push (Expo / FCM)"] },
       { title: "Security & Reliability", icon: "⛨", items: ["CSP / HSTS", "OTP + TOTP MFA", "RBAC", "Rate limiting", "Audit trails", "Fail-closed config"] },
+      { title: "WordPress & CMS", icon: "W", items: ["Custom themes & plugins", "WordPress backend", "Custom tables & REST", "Booking & forms", "Performance tuning"] },
+      { title: "SEO & Growth", icon: "↗", items: ["Technical SEO", "JSON-LD / Open Graph", "Consent-aware analytics", "Lead generation", "Social media ads"] },
     ],
   },
   about: {
@@ -178,6 +209,7 @@ const EN: Dict = {
       "A senior hands-on engineer who takes products from a blank repo to production: architecture, backend, frontend, mobile, payments, infrastructure and the automation around them.",
     ],
     gwork: ["I also run ", ", a practice for software, AI automation, cloud and digital security."],
+    artist: ["Outside of code I'm also a music artist — ", " — producing music, video and social campaigns."],
     workOnTitle: "What I work on",
     workOn: [
       "Production web & mobile products",
@@ -196,6 +228,7 @@ const EN: Dict = {
       "Open to senior and lead roles, and to projects in full-stack engineering, AI-assisted automation, and cloud/platform work. Private repositories can be walked through on a call.",
     email: "Email me",
     website: "GWork Systems",
+    whatsapp: "WhatsApp",
   },
   footer: { rights: "All rights reserved." },
   caseStudy: {
@@ -241,8 +274,9 @@ const ES: Dict = {
   badge: "Full-stack · Automatización con IA · Cloud — Medellín, CO",
   nav: [
     { href: "#work", label: "Proyectos" },
+    { href: "#payments", label: "Pagos" },
+    { href: "#clients", label: "Clientes" },
     { href: "#process", label: "Proceso" },
-    { href: "#expertise", label: "Experiencia" },
     { href: "#about", label: "Sobre mí" },
     { href: "#contact", label: "Contacto" },
   ],
@@ -253,7 +287,7 @@ const ES: Dict = {
   stats: {
     systems: "sistemas con caso de estudio completo",
     tests: "pruebas automatizadas entre ellos",
-    stack: "entrega bilingüe, inglés y español",
+    clients: "sitios de clientes en producción",
     years: "años en software y cloud",
   },
   categories: { Product: "Producto", Platform: "Plataforma", Integration: "Integración", Automation: "Automatización", Web: "Web" },
@@ -278,6 +312,32 @@ const ES: Dict = {
     earlierIntro: "Proyectos anteriores y más pequeños — cada uno enlaza a su código.",
   },
   card: { cta: "Caso de estudio, diagramas y flujos", privateRepo: "repo privado", source: "Código", live: "En vivo" },
+  clients: {
+    eyebrow: "Sitios de clientes",
+    title: "Sitios en producción para negocios reales",
+    intro: "WordPress y desarrollo web a la medida para salud, hotelería, reclutamiento, finanzas, educación y organizaciones sin ánimo de lucro — todos en línea hoy.",
+    visit: "Ver sitio",
+  },
+  payments: {
+    eyebrow: "Pagos",
+    title: "Integraciones de pago, hechas de forma segura",
+    intro: "Wompi, PayU, ePayco — y Bold próximamente para Sedona Scapes. Distintos proveedores, un solo patrón: el dinero solo se mueve con un webhook verificado e idempotente.",
+    shipped: "Integrado",
+    inProgress: "En curso",
+    usedIn: "Usado en",
+    flow: {
+      title: "Un patrón para cada pasarela",
+      summary: "Adaptadores neutrales de proveedor mantienen igual el checkout, la confirmación y la contabilidad, sin importar la pasarela que elija el cliente.",
+      steps: [
+        { label: "Cotizar y retener", detail: "precio congelado, inventario retenido", kind: "guard" },
+        { label: "Checkout alojado", detail: "Wompi · PayU · Bold · ePayco", kind: "external" },
+        { label: "Webhook firmado", detail: "firma / checksum verificado", kind: "guard" },
+        { label: "Aplicación idempotente", detail: "deduplicado por evento", kind: "auto" },
+        { label: "Libro contable y conciliación", detail: "append-only, diferencias marcadas", kind: "data" },
+        { label: "Confirmación", detail: "huésped / jugador notificado", kind: "user" },
+      ],
+    },
+  },
   process: {
     eyebrow: "Cómo construyo",
     title: "Potenciado con IA, pensado para producción",
@@ -330,8 +390,10 @@ const ES: Dict = {
       { title: "IA y Automatización", icon: "◇", items: ["APIs de LLM y abstracción de proveedores", "Asistentes con fundamento", "Patrones de tools / funciones", "Entrega asistida por agentes", "Scrapers y enriquecimiento", "Schedulers y procesos en segundo plano"] },
       { title: "Cloud y Plataforma", icon: "☁", items: ["Cloudflare Workers / Pages / R2 / KV", "AWS", "Azure", "Docker", "Terraform", "GitHub Actions"] },
       { title: "Datos y Backend", icon: "▤", items: ["PostgreSQL / PostGIS", "Drizzle / SQLAlchemy / Eloquent", "Neon", "Azure Data Factory", "Databricks", "PySpark"] },
-      { title: "Pagos e Integraciones", icon: "⇄", items: ["Wompi", "PayU", "HubSpot", "Google OAuth", "Webhooks e idempotencia", "Push (Expo / FCM)"] },
+      { title: "Pagos e Integraciones", icon: "⇄", items: ["Wompi", "PayU", "ePayco", "Bold", "HubSpot", "Google OAuth", "Webhooks e idempotencia", "Push (Expo / FCM)"] },
       { title: "Seguridad y Confiabilidad", icon: "⛨", items: ["CSP / HSTS", "OTP + TOTP MFA", "RBAC", "Rate limiting", "Auditoría", "Configuración fail-closed"] },
+      { title: "WordPress y CMS", icon: "W", items: ["Temas y plugins a la medida", "Backend en WordPress", "Tablas propias y REST", "Reservas y formularios", "Optimización de rendimiento"] },
+      { title: "SEO y Crecimiento", icon: "↗", items: ["SEO técnico", "JSON-LD / Open Graph", "Analítica con consentimiento", "Generación de leads", "Publicidad en redes"] },
     ],
   },
   about: {
@@ -342,6 +404,7 @@ const ES: Dict = {
       "Ingeniero senior que pone las manos en el código y lleva productos desde un repo vacío hasta producción: arquitectura, backend, frontend, móvil, pagos, infraestructura y la automatización alrededor.",
     ],
     gwork: ["También dirijo ", ", una firma de software, automatización con IA, cloud y seguridad digital."],
+    artist: ["Fuera del código también soy artista musical — ", " — con producción musical, video y campañas en redes."],
     workOnTitle: "En qué trabajo",
     workOn: [
       "Productos web y móviles en producción",
@@ -360,6 +423,7 @@ const ES: Dict = {
       "Abierto a roles senior y de liderazgo, y a proyectos de ingeniería full-stack, automatización con IA y cloud. Los repositorios privados se pueden revisar en una llamada.",
     email: "Escríbeme",
     website: "GWork Systems",
+    whatsapp: "WhatsApp",
   },
   footer: { rights: "Todos los derechos reservados." },
   caseStudy: {
