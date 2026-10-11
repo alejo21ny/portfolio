@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "resume:pdf": "node scripts/resume-pdf.mjs",
+    "resume:docx": "node scripts/resume-docx.mjs"
   },
   "dependencies": {
     "next": "^15.5.25",
@@ -19,8 +21,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "docx": "^9.7.1",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "playwright-core": "^1.56.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

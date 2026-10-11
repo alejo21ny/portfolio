@@ -11,6 +11,7 @@ import { CLIENT_SITES, ARTIST } from "@/lib/clients";
 import { PAYMENTS } from "@/lib/payments";
 import { asset } from "@/lib/asset";
 import { DICT, getProjects, localePath, type Locale } from "@/lib/i18n";
+import { RESUME_UI } from "@/lib/resume";
 
 const WHATSAPP = "https://wa.me/573178530602";
 
@@ -93,6 +94,12 @@ export default function HomePage({ locale }: { locale: Locale }) {
                 className="rounded-md border border-border bg-surface px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent"
               >
                 {t.hero.secondary}
+              </Link>
+              <Link
+                href={localePath(locale, "/resume/")}
+                className="rounded-md border border-border bg-surface px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent"
+              >
+                {RESUME_UI[locale].resume}
               </Link>
               <div className="flex items-center gap-1 px-1 text-muted">
                 {contacts.slice(1, 4).map((c) => (

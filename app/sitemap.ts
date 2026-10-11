@@ -14,7 +14,7 @@ const entry = (path: string, priority: number): MetadataRoute.Sitemap[number] =>
 });
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["/", ...PROJECTS.map((p) => `/work/${p.slug}/`)];
+  const paths = ["/", "/resume/", ...PROJECTS.map((p) => `/work/${p.slug}/`)];
   return paths.flatMap((path, i) => {
     const en = entry(path, i === 0 ? 1 : 0.8);
     return [en, { ...en, url: `${SITE_URL}/es${path}` }];

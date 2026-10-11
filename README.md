@@ -63,9 +63,24 @@ lib/
   projects.es.ts          the same projects in Spanish, identical shape
   screens.ts              screenshots per project (bilingual alt text)
   earlier.ts              smaller public projects ("More projects")
+  resume.ts               résumé data (web CV, PDFs, DOCX)
   asset.ts                base-path-aware URLs for public/ files
 public/screens/           screenshots captured from each app running locally
 ```
+
+## Resume / CV
+
+`lib/resume.ts` is the single source of truth for the résumé — every version is generated from it, so dates and titles never drift:
+
+| Output | Where |
+|---|---|
+| Web CV (EN / ES), printable | `/resume/`, `/es/resume/` |
+| ATS-friendly web CV | `/resume/ats/`, `/es/resume/ats/` |
+| Designed PDF + ATS PDF (EN / ES) | `public/cv/*.pdf` — `npm run build && npm run resume:pdf` |
+| Editable Word (EN / ES) | `public/cv/*.docx` — `npm run resume:docx` |
+| LinkedIn copy | `docs/linkedin-kit.md` |
+
+After editing `lib/resume.ts`, regenerate and commit the files in `public/cv/`. The PDF script prints the static export with headless Chromium (`playwright-core`; set `CHROMIUM_PATH` if Playwright's browser isn't installed).
 
 ## Deployment
 
