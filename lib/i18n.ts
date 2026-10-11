@@ -69,11 +69,11 @@ type Dict = {
 const EN: Dict = {
   htmlLang: "en",
   meta: {
-    title: "David Gomez | Senior Full-Stack Engineer & AI Automation Specialist",
+    title: "David Gomez | Senior Full-Stack Developer & AI Automation Specialist",
     description:
-      "Senior full-stack engineer building production platforms, booking and payment engines, mobile apps and AI-assisted automation — with architecture, workflows and data models for every project.",
+      "Senior full-stack developer building production platforms, booking and payment engines, mobile apps and AI-assisted automation — with architecture, workflows and data models for every project.",
   },
-  role: "Senior Full-Stack Engineer & AI Automation Specialist",
+  role: "Senior Full-Stack Developer & AI Automation Specialist",
   statement:
     "I design and build production platforms end to end — booking and payment engines, mobile marketplaces, data pipelines and AI-assisted automation — from architecture to deploy.",
   badge: "Full-stack · AI automation · Cloud — Medellín, CO",
@@ -192,7 +192,7 @@ const EN: Dict = {
     eyebrow: "Capabilities",
     title: "Expertise",
     groups: [
-      { title: "Full-Stack Engineering", icon: "</>", items: ["React", "Next.js", "TypeScript", "PHP / Laravel", "Python / FastAPI", "Node.js", "React Native / Expo"] },
+      { title: "Full-Stack Development", icon: "</>", items: ["React", "Next.js", "TypeScript", "PHP / Laravel", "Python / FastAPI", "Node.js", "React Native / Expo"] },
       { title: "AI & Automation", icon: "◇", items: ["LLM APIs & provider abstractions", "Grounded assistants", "Tool / function patterns", "AI-assisted delivery (agents)", "Scrapers & enrichment", "Schedulers & background jobs"] },
       { title: "Cloud & Platform", icon: "☁", items: ["Cloudflare Workers / Pages / R2 / KV", "AWS", "Azure", "Docker", "Terraform", "GitHub Actions"] },
       { title: "Data & Backend", icon: "▤", items: ["PostgreSQL / PostGIS", "Drizzle / SQLAlchemy / Eloquent", "Neon", "Azure Data Factory", "Databricks", "PySpark"] },
@@ -207,7 +207,7 @@ const EN: Dict = {
     title: "About David",
     paragraphs: [
       "Based in Medellín, Colombia. 15+ years across software, cloud, internal systems, data and automation — and seven years founding and running my own hospitality business. Bilingual — English / Spanish.",
-      "A senior hands-on engineer who takes products from a blank repo to production: architecture, backend, frontend, mobile, payments, infrastructure and the automation around them.",
+      "A senior, hands-on developer and technical lead who takes products from a blank repo to production: architecture, backend, frontend, mobile, payments, infrastructure and the automation around them.",
     ],
     gwork: ["I also run ", ", a practice for software, AI automation, cloud and digital security."],
     artist: ["Outside of code I'm also a music artist — ", " — producing music, video and social campaigns."],
@@ -226,7 +226,7 @@ const EN: Dict = {
     eyebrow: "Get in touch",
     title: "Let's build something real",
     intro:
-      "Open to senior and lead roles, and to projects in full-stack engineering, AI-assisted automation, and cloud/platform work. Private repositories can be walked through on a call.",
+      "Open to senior and lead roles, and to projects in full-stack development, AI-assisted automation, and cloud/platform work. Private repositories can be walked through on a call.",
     email: "Email me",
     website: "GWork Systems",
     whatsapp: "WhatsApp",
@@ -265,11 +265,11 @@ const EN: Dict = {
 const ES: Dict = {
   htmlLang: "es",
   meta: {
-    title: "David Gómez | Ingeniero Full-Stack Senior y especialista en automatización con IA",
+    title: "David Gómez | Desarrollador Full-Stack Senior y especialista en automatización con IA",
     description:
-      "Ingeniero full-stack senior que construye plataformas en producción, motores de reservas y pagos, apps móviles y automatización con IA — con arquitectura, flujos y modelo de datos de cada proyecto.",
+      "Desarrollador full-stack senior que construye plataformas en producción, motores de reservas y pagos, apps móviles y automatización con IA — con arquitectura, flujos y modelo de datos de cada proyecto.",
   },
-  role: "Ingeniero Full-Stack Senior y especialista en automatización con IA",
+  role: "Desarrollador Full-Stack Senior y especialista en automatización con IA",
   statement:
     "Diseño y construyo plataformas de punta a punta — motores de reservas y pagos, marketplaces móviles, pipelines de datos y automatización con IA — desde la arquitectura hasta el despliegue.",
   badge: "Full-stack · Automatización con IA · Cloud — Medellín, CO",
@@ -388,7 +388,7 @@ const ES: Dict = {
     eyebrow: "Capacidades",
     title: "Experiencia",
     groups: [
-      { title: "Ingeniería Full-Stack", icon: "</>", items: ["React", "Next.js", "TypeScript", "PHP / Laravel", "Python / FastAPI", "Node.js", "React Native / Expo"] },
+      { title: "Desarrollo Full-Stack", icon: "</>", items: ["React", "Next.js", "TypeScript", "PHP / Laravel", "Python / FastAPI", "Node.js", "React Native / Expo"] },
       { title: "IA y Automatización", icon: "◇", items: ["APIs de LLM y abstracción de proveedores", "Asistentes con fundamento", "Patrones de tools / funciones", "Entrega asistida por agentes", "Scrapers y enriquecimiento", "Schedulers y procesos en segundo plano"] },
       { title: "Cloud y Plataforma", icon: "☁", items: ["Cloudflare Workers / Pages / R2 / KV", "AWS", "Azure", "Docker", "Terraform", "GitHub Actions"] },
       { title: "Datos y Backend", icon: "▤", items: ["PostgreSQL / PostGIS", "Drizzle / SQLAlchemy / Eloquent", "Neon", "Azure Data Factory", "Databricks", "PySpark"] },
@@ -403,7 +403,7 @@ const ES: Dict = {
     title: "Sobre David",
     paragraphs: [
       "Vivo en Medellín, Colombia. Más de 15 años en software, cloud, sistemas internos, datos y automatización — y siete años fundando y dirigiendo mi propio negocio hotelero. Bilingüe — inglés / español.",
-      "Ingeniero senior que pone las manos en el código y lleva productos desde un repo vacío hasta producción: arquitectura, backend, frontend, móvil, pagos, infraestructura y la automatización alrededor.",
+      "Desarrollador senior y líder técnico que pone las manos en el código y lleva productos desde un repo vacío hasta producción: arquitectura, backend, frontend, móvil, pagos, infraestructura y la automatización alrededor.",
     ],
     gwork: ["También dirijo ", ", una firma de software, automatización con IA, cloud y seguridad digital."],
     artist: ["Fuera del código también soy artista musical — ", " — con producción musical, video y campañas en redes."],
@@ -422,7 +422,7 @@ const ES: Dict = {
     eyebrow: "Contacto",
     title: "Construyamos algo real",
     intro:
-      "Abierto a roles senior y de liderazgo, y a proyectos de ingeniería full-stack, automatización con IA y cloud. Los repositorios privados se pueden revisar en una llamada.",
+      "Abierto a roles senior y de liderazgo, y a proyectos de desarrollo full-stack, automatización con IA y cloud. Los repositorios privados se pueden revisar en una llamada.",
     email: "Escríbeme",
     website: "GWork Systems",
     whatsapp: "WhatsApp",

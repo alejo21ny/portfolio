@@ -39,8 +39,8 @@ export const RESUME = {
   name: "David Alejandro Gómez Builes",
   shortName: "David Gómez",
   headline: {
-    en: "Senior Full-Stack Engineer · Platform, Cloud & AI Automation",
-    es: "Ingeniero Full-Stack Senior · Cloud, Plataformas y Automatización IA",
+    en: "Senior Full-Stack Developer & Technical Lead · Cloud, Platforms & AI Automation",
+    es: "Desarrollador Full-Stack Senior y Líder Técnico · Cloud, Plataformas y Automatización IA",
   } satisfies L,
   location: { en: "Medellín, Colombia · Open to remote & hybrid", es: "Medellín, Colombia · Disponible remoto e híbrido" } satisfies L,
   contact: {
@@ -54,8 +54,8 @@ export const RESUME = {
   },
 
   summary: {
-    en: "Senior full-stack engineer with 15+ years in software and IT — and 20+ years of work that includes founding and running my own hospitality business. I take products from an empty repository to production — architecture, backend, frontend, mobile, payments and infrastructure — and build the AI-assisted automation around them. Hands-on with PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker and Terraform. Having run a business end to end, I build with operations, customers and margins in mind. Bilingual English/Spanish, used to remote work with international teams.",
-    es: "Ingeniero full-stack senior con más de 15 años en software y TI — y más de 20 años de trayectoria que incluye fundar y dirigir mi propio negocio hotelero. Llevo productos desde un repositorio vacío hasta producción — arquitectura, backend, frontend, móvil, pagos e infraestructura — y construyo la automatización con IA a su alrededor. Trabajo con PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker y Terraform. Haber dirigido un negocio completo me hace construir pensando en la operación, el cliente y los márgenes. Bilingüe inglés/español, con experiencia remota en equipos internacionales.",
+    en: "Senior full-stack developer and technical lead with 15+ years in software and IT — and 20+ years of work that includes founding and running my own hospitality business. I take products from an empty repository to production — architecture, backend, frontend, mobile, payments and infrastructure — and build the AI-assisted automation around them. Hands-on with PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker and Terraform. Having run a business end to end, I build with operations, customers and margins in mind. Bilingual English/Spanish, used to remote work with international teams.",
+    es: "Desarrollador full-stack senior y líder técnico con más de 15 años en software y TI — y más de 20 años de trayectoria que incluye fundar y dirigir mi propio negocio hotelero. Llevo productos desde un repositorio vacío hasta producción — arquitectura, backend, frontend, móvil, pagos e infraestructura — y construyo la automatización con IA a su alrededor. Trabajo con PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker y Terraform. Haber dirigido un negocio completo me hace construir pensando en la operación, el cliente y los márgenes. Bilingüe inglés/español, con experiencia remota en equipos internacionales.",
   } satisfies L,
 
   highlights: {
@@ -77,7 +77,7 @@ export const RESUME = {
     {
       company: "GWork Systems",
       url: "https://gworksystems.com",
-      role: { en: "Founder & Lead Engineer", es: "Fundador e Ingeniero Líder" },
+      role: { en: "Founder & Technical Lead", es: "Fundador y Líder Técnico" },
       location: { en: "Medellín · Remote", es: "Medellín · Remoto" },
       start: "2026",
       end: null,

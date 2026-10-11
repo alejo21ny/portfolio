@@ -11,15 +11,15 @@ Texto listo para pegar en LinkedIn. Las fechas y cargos coinciden con `lib/resum
 ## 1. Headline (máx. 220 caracteres)
 
 **EN**
-> Senior Full-Stack Engineer · Platform, Cloud & AI Automation | Laravel · React/TypeScript · Node.js · PostgreSQL · AWS · Cloudflare | Founder, GWork Systems
+> Senior Full-Stack Developer & Technical Lead · Cloud, Platforms & AI Automation | Laravel · React/TypeScript · Node.js · PostgreSQL · AWS · Cloudflare | Founder, GWork Systems
 
 **ES** (si el perfil está en español)
-> Ingeniero Full-Stack Senior · Cloud, Plataformas y Automatización con IA | Laravel · React/TypeScript · Node.js · PostgreSQL · AWS · Cloudflare | Fundador, GWork Systems
+> Desarrollador Full-Stack Senior y Líder Técnico · Cloud, Plataformas y Automatización con IA | Laravel · React/TypeScript · Node.js · PostgreSQL · AWS · Cloudflare | Fundador, GWork Systems
 
 ## 2. About / Acerca de
 
 **EN**
-> Senior full-stack engineer with 15+ years in software and IT — and 20+ years of work that includes seven years founding and running my own hospitality business in Medellín.
+> Senior full-stack developer and technical lead with 15+ years in software and IT — and 20+ years of work that includes seven years founding and running my own hospitality business in Medellín.
 >
 > I take products from an empty repository to production — architecture, backend, frontend, mobile, payments and infrastructure — and build the AI-assisted automation around them. Recent work includes a direct-booking hospitality platform, a real-time sports marketplace with an Android app, a marketplace rebuild with webhook-confirmed payments, and AI-assisted bots for internal operations on Slack, AWS and Cloudflare.
 >
@@ -32,7 +32,7 @@ Texto listo para pegar en LinkedIn. Las fechas y cargos coinciden con `lib/resum
 > Portfolio with architecture, workflows and data models for every project: https://fsdgportfolio.netlify.app
 
 **ES**
-> Ingeniero full-stack senior con más de 15 años en software y TI — y más de 20 años de trayectoria que incluye siete años fundando y dirigiendo mi propio negocio hotelero en Medellín.
+> Desarrollador full-stack senior y líder técnico con más de 15 años en software y TI — y más de 20 años de trayectoria que incluye siete años fundando y dirigiendo mi propio negocio hotelero en Medellín.
 >
 > Llevo productos desde un repositorio vacío hasta producción — arquitectura, backend, frontend, móvil, pagos e infraestructura — y construyo la automatización con IA a su alrededor. Trabajos recientes: una plataforma de reservas directas para hotelería, un marketplace deportivo en tiempo real con app Android, la reconstrucción de un marketplace con pagos confirmados por webhook y bots con IA para operaciones internas en Slack, AWS y Cloudflare.
 >
@@ -51,7 +51,7 @@ role (same text as the CV). Skills = the stack line.
 
 | Title | Company | Employment type | Dates | Location |
 |---|---|---|---|---|
-| Founder & Lead Engineer | GWork Systems | Self-employed | 2026 – Present | Medellín · Remote |
+| Founder & Technical Lead | GWork Systems | Self-employed | 2026 – Present | Medellín · Remote |
 | IT Manager — IT & Internal Systems | indie.io | Full-time | May 2026 – Sep 2026 | Remote |
 | Full-Stack Developer — WordPress | Major Media | Contract | 2026 (several months) | Remote |
 | Full-Stack Developer & API Technical Writer | Fiserv | Full-time | Jan 2026 – Apr 2026 | Remote |
@@ -93,5 +93,7 @@ Same list as the CV (`RESUME.education`, `RESUME.certifications`). Add the five 
 
 ## 7. Open to work
 
-Job titles: Senior Full-Stack Engineer · Senior Software Engineer · Platform Engineer ·
-Automation Engineer · Technical Lead. Location: Remote (Worldwide/LatAm/US) + Medellín.
+Job titles: Senior Full-Stack Developer · Senior Software Developer · Technical Lead ·
+IT Manager · Automation Specialist. (Applying to roles titled "Software Engineer" is fine —
+it's the job's name; just don't describe yourself as an engineer, and never as
+"Ingeniero" in Spanish without the degree.) Location: Remote (Worldwide/LatAm/US) + Medellín.
