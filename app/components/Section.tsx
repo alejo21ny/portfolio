@@ -13,7 +13,7 @@ export default function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-20 border-t border-border py-16 sm:py-20">
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {eyebrow && (
           <p className="mb-2 text-sm font-medium tracking-wide text-accent">{eyebrow}</p>
         )}

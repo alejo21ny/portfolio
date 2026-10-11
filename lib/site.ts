@@ -2,7 +2,7 @@
 // once a real domain is chosen; everything that needs an absolute URL
 // (canonical, Open Graph, sitemap, robots, JSON-LD) reads from here instead
 // of hardcoding a guessed domain.
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://davidgomez.dev";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fsdgportfolio.netlify.app";
 
 export const SITE = {
   name: "David Gomez",
@@ -20,8 +20,8 @@ export const SITE = {
 } as const;
 
 export const NAV = [
-  { href: "#home", label: "Home" },
   { href: "#work", label: "Work" },
+  { href: "#process", label: "Process" },
   { href: "#expertise", label: "Expertise" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },

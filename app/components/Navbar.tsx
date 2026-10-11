@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-5xl items-center gap-4 px-6 py-4">
+      <nav className="mx-auto flex max-w-6xl items-center gap-4 px-4 sm:px-6 py-4">
         <Link href="/#home" className="font-semibold tracking-tight">
           {SITE.name}
         </Link>
