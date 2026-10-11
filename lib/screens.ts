@@ -4,6 +4,11 @@ import type { Screenshot } from "./types";
 // Kept apart from the project copy so both languages share one list; alt text
 // is English and Spanish.
 export const SCREENS: Record<string, Screenshot[]> = {
+  "lead-engine": [
+    { src: "/screens/leadengine-dashboard.jpg", device: "desktop", alt: { en: "Businesses dashboard: counters, filters and CRM status per lead (sample data)", es: "Panel de empresas: contadores, filtros y estado CRM por lead (datos de ejemplo)" } },
+    { src: "/screens/leadengine-detail.jpg", device: "desktop", alt: { en: "Lead detail: contact channels, allowed pipeline moves and notes", es: "Detalle del lead: canales de contacto, movimientos permitidos del pipeline y notas" } },
+    { src: "/screens/leadengine-runs.jpg", device: "desktop", alt: { en: "Connectors and run history, with resume on a failed run", es: "Conectores e historial de ejecuciones, con reanudar en una fallida" } },
+  ],
   "sedona-scapes": [
     { src: "/screens/sedona-home.jpg", device: "desktop", alt: { en: "Guest site: hero with date search", es: "Sitio de huéspedes: portada con búsqueda por fechas" } },
     { src: "/screens/sedona-property-booking.jpg", device: "desktop", alt: { en: "Property page with amenities and booking panel", es: "Página de propiedad con amenidades y panel de reserva" } },
