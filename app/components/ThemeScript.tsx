@@ -1,13 +1,11 @@
-// Blocking, inline, and static (no user input reaches it) — the standard
-// pattern to set the theme attribute before first paint, avoiding a
-// light-then-dark flash. Runs before hydration; kept deliberately tiny.
+// Blocking, inline, and static (no user input reaches it). The server renders
+// <html data-theme="dark">; this only swaps to light before first paint when
+// the visitor picked it earlier, so there is no dark-then-light flash.
 const THEME_SCRIPT = `
 (function () {
   try {
-    var stored = localStorage.getItem("theme");
-    var theme = stored === "light" || stored === "dark" ? stored : "system";
-    if (theme !== "system") {
-      document.documentElement.setAttribute("data-theme", theme);
+    if (localStorage.getItem("theme") === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
     }
   } catch (e) {}
 })();

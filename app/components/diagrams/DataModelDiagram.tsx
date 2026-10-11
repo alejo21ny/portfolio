@@ -3,7 +3,13 @@ import type { DataModel } from "@/lib/types";
 // Entity cards (table name + key columns) plus an explicit relationship list.
 // Drawing crow's-foot lines between cards breaks as soon as the grid reflows
 // on a phone; listing relations keeps the diagram correct at every width.
-export default function DataModelDiagram({ model }: { model: DataModel }) {
+export default function DataModelDiagram({
+  model,
+  relationshipsLabel,
+}: {
+  model: DataModel;
+  relationshipsLabel: string;
+}) {
   return (
     <figure className="rounded-xl border border-border bg-surface p-5 sm:p-6">
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -29,7 +35,7 @@ export default function DataModelDiagram({ model }: { model: DataModel }) {
 
       {model.relations.length > 0 && (
         <figcaption className="mt-6 border-t border-border pt-4">
-          <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-muted">Relationships</p>
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-muted">{relationshipsLabel}</p>
           <ul className="grid gap-1.5 text-sm md:grid-cols-2">
             {model.relations.map((r) => (
               <li key={`${r.from}-${r.to}-${r.label}`} className="flex flex-wrap items-center gap-2">

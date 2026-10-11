@@ -85,5 +85,10 @@ export type Project = {
   dataModel?: DataModel;
   ai?: string[];
   sections?: Section[];
-  screenshots?: { src: string; alt: string; device: "desktop" | "mobile" }[];
+};
+
+export type Screenshot = {
+  src: string;
+  device: "desktop" | "mobile";
+  alt: { en: string; es: string };
 };

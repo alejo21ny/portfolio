@@ -1,9 +1,17 @@
 import type { Workflow } from "@/lib/types";
-import { KIND_META, KindLegend } from "./kinds";
+import { KIND_META, KindLegend, type LegendLabels } from "./kinds";
 
 // Vertical timeline on phones, a wrapping left-to-right chain from `md` up.
 // Pure CSS layout — it reflows instead of shrinking like an SVG would.
-export default function WorkflowDiagram({ workflow, index }: { workflow: Workflow; index?: number }) {
+export default function WorkflowDiagram({
+  workflow,
+  index,
+  legend,
+}: {
+  workflow: Workflow;
+  index?: number;
+  legend: LegendLabels;
+}) {
   const kinds = workflow.steps.map((s) => s.kind ?? "auto");
   return (
     <figure className="rounded-xl border border-border bg-surface p-5 sm:p-6">
@@ -15,7 +23,7 @@ export default function WorkflowDiagram({ workflow, index }: { workflow: Workflo
           <h3 className="text-lg font-semibold tracking-tight">{workflow.title}</h3>
           {workflow.summary && <p className="mt-1 max-w-2xl text-sm text-muted">{workflow.summary}</p>}
         </div>
-        <KindLegend kinds={kinds} />
+        <KindLegend kinds={kinds} labels={legend} />
       </figcaption>
 
       <ol
@@ -48,7 +56,7 @@ export default function WorkflowDiagram({ workflow, index }: { workflow: Workflo
                   <span className="hidden font-mono text-[10px] text-muted md:inline">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="sr-only">{meta.label}:</span>
+                  <span className="sr-only">{legend[step.kind ?? "auto"]}:</span>
                   <p className="text-sm font-medium leading-snug">{step.label}</p>
                 </div>
                 {step.detail && <p className="text-xs leading-relaxed text-muted">{step.detail}</p>}

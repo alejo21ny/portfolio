@@ -1,33 +1,36 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PROJECTS, getProject } from "@/lib/projects";
-import StatusPill from "@/app/components/StatusPill";
-import Tag from "@/app/components/Tag";
-import Screens from "@/app/components/Screens";
-import ArchitectureDiagram from "@/app/components/diagrams/ArchitectureDiagram";
-import WorkflowDiagram from "@/app/components/diagrams/WorkflowDiagram";
-import DataModelDiagram from "@/app/components/diagrams/DataModelDiagram";
+import { PROJECTS } from "@/lib/projects";
+import { SCREENS } from "@/lib/screens";
+import { DICT, getProject, getProjects, localePath, type Locale } from "@/lib/i18n";
+import Tag from "./Tag";
+import Screens from "./Screens";
+import ExternalLink from "./ExternalLink";
+import ArchitectureDiagram from "./diagrams/ArchitectureDiagram";
+import WorkflowDiagram from "./diagrams/WorkflowDiagram";
+import DataModelDiagram from "./diagrams/DataModelDiagram";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
+export function caseStudyParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const project = getProject((await params).slug);
+export function caseStudyMetadata(locale: Locale, slug: string): Metadata {
+  const project = getProject(locale, slug);
   if (!project) return {};
   return {
     title: project.name,
     description: project.summary,
-    alternates: { canonical: `/work/${project.slug}/` },
+    alternates: {
+      canonical: localePath(locale, `/work/${slug}/`),
+      languages: { en: `/work/${slug}/`, es: `/es/work/${slug}/` },
+    },
   };
 }
 
 function Block({ id, eyebrow, title, children }: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-24">
+    <section id={id} className="scroll-mt-32">
       <p className="mb-1 font-mono text-xs uppercase tracking-wider text-accent">{eyebrow}</p>
       <h2 className="mb-5 text-2xl font-semibold tracking-tight">{title}</h2>
       {children}
@@ -35,21 +38,23 @@ function Block({ id, eyebrow, title, children }: { id: string; eyebrow: string; 
   );
 }
 
-export default async function CaseStudy({ params }: { params: Promise<{ slug: string }> }) {
-  const project = getProject((await params).slug);
+export default function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }) {
+  const t = DICT[locale].caseStudy;
+  const projects = getProjects(locale);
+  const project = projects.find((p) => p.slug === slug);
   if (!project) notFound();
 
-  const index = PROJECTS.indexOf(project);
-  const next = PROJECTS[(index + 1) % PROJECTS.length];
+  const screens = SCREENS[slug];
+  const next = projects[(projects.indexOf(project) + 1) % projects.length];
 
   const toc = [
-    { id: "overview", label: "Overview" },
-    project.screenshots && { id: "screens", label: "Screens" },
-    project.architecture && { id: "architecture", label: "Architecture" },
-    project.workflows && { id: "workflows", label: "Workflows" },
-    project.dataModel && { id: "data-model", label: "Data model" },
-    project.ai && { id: "ai", label: "AI" },
-    { id: "stack", label: "Stack" },
+    { id: "overview", label: t.toc.overview },
+    screens && { id: "screens", label: t.toc.screens },
+    project.architecture && { id: "architecture", label: t.toc.architecture },
+    project.workflows && { id: "workflows", label: t.toc.workflows },
+    project.dataModel && { id: "data-model", label: t.toc.dataModel },
+    project.ai && { id: "ai", label: t.toc.ai },
+    { id: "stack", label: t.toc.stack },
   ].filter(Boolean) as { id: string; label: string }[];
 
   return (
@@ -57,34 +62,32 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <header className="relative overflow-hidden border-b border-border">
         <div className="bg-grid bg-grid-fade absolute inset-0 opacity-60" aria-hidden />
         <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-10 sm:px-6 sm:pt-14">
-          <Link href="/#work" className="text-sm text-muted hover:text-foreground">
-            ← All work
+          <Link href={`${localePath(locale, "/")}#work`} className="text-sm text-muted hover:text-foreground">
+            {t.back}
           </Link>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <StatusPill status={project.status} />
-            <span className="font-mono text-xs uppercase tracking-wider text-muted">
-              {project.category} · {project.year}
-            </span>
-          </div>
-          <p className="mt-4 text-sm font-medium text-accent">{project.label}</p>
+          <p className="mt-6 font-mono text-xs uppercase tracking-wider text-muted">
+            {DICT[locale].categories[project.category]} · {project.year}
+          </p>
+          <p className="mt-3 text-sm font-medium text-accent">{project.label}</p>
           <h1 className="mt-1 text-4xl font-semibold tracking-tight sm:text-5xl">{project.name}</h1>
           <p className="mt-4 max-w-3xl text-lg text-muted">{project.summary}</p>
 
           <div className="mt-6 flex flex-wrap gap-3 text-sm">
             {project.live && (
-              <a href={project.live} className="rounded-md bg-accent px-4 py-2 font-medium text-accent-foreground hover:opacity-90">
-                Visit live site ↗
-              </a>
+              <ExternalLink
+                href={project.live}
+                className="rounded-md bg-accent px-4 py-2 font-medium text-accent-foreground hover:opacity-90"
+              >
+                {t.visit}
+              </ExternalLink>
             )}
             {project.github && (
-              <a href={project.github} className="rounded-md border border-border px-4 py-2 font-medium hover:border-accent">
-                View source ↗
-              </a>
+              <ExternalLink href={project.github} className="rounded-md border border-border px-4 py-2 font-medium hover:border-accent">
+                {t.source}
+              </ExternalLink>
             )}
             {project.privateRepo && (
-              <span className="rounded-md border border-dashed border-border px-4 py-2 text-muted">
-                Private repository — walkthrough on request
-              </span>
+              <span className="rounded-md border border-dashed border-border px-4 py-2 text-muted">{t.privateRepo}</span>
             )}
           </div>
 
@@ -100,67 +103,64 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         </div>
       </header>
 
-      <nav
-        aria-label="On this page"
-        className="sticky top-[61px] z-30 border-b border-border bg-background/85 backdrop-blur-sm"
-      >
+      <nav aria-label={t.toc.overview} className="sticky top-16 z-30 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-4 py-2 text-sm sm:px-6">
-          {toc.map((t) => (
+          {toc.map((item) => (
             <a
-              key={t.id}
-              href={`#${t.id}`}
+              key={item.id}
+              href={`#${item.id}`}
               className="shrink-0 rounded-md px-3 py-1.5 text-muted transition-colors hover:bg-surface hover:text-foreground"
             >
-              {t.label}
+              {item.label}
             </a>
           ))}
         </div>
       </nav>
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-14 sm:px-6 sm:py-16">
-        <Block id="overview" eyebrow="Overview" title="Problem → solution">
+        <Block id="overview" eyebrow={t.overviewEyebrow} title={t.overviewTitle}>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-xl border border-border bg-surface p-6">
-              <p className="mb-2 font-mono text-xs uppercase tracking-wider text-rose-500">The problem</p>
+              <p className="mb-2 font-mono text-xs uppercase tracking-wider text-rose-500">{t.problem}</p>
               <p className="text-foreground/90">{project.problem}</p>
             </div>
             <div className="rounded-xl border border-accent/40 bg-surface p-6">
-              <p className="mb-2 font-mono text-xs uppercase tracking-wider text-accent">What I built</p>
+              <p className="mb-2 font-mono text-xs uppercase tracking-wider text-accent">{t.built}</p>
               <p className="text-foreground/90">{project.solution}</p>
             </div>
           </div>
         </Block>
 
-        {project.screenshots && (
-          <Block id="screens" eyebrow="Screens" title="The product, running">
-            <Screens shots={project.screenshots} />
+        {screens && (
+          <Block id="screens" eyebrow={t.screensEyebrow} title={t.screensTitle}>
+            <Screens shots={screens} locale={locale} />
           </Block>
         )}
 
         {project.architecture && (
-          <Block id="architecture" eyebrow="System design" title="Architecture">
-            <ArchitectureDiagram architecture={project.architecture} />
+          <Block id="architecture" eyebrow={t.archEyebrow} title={t.archTitle}>
+            <ArchitectureDiagram architecture={project.architecture} connectionsLabel={t.keyConnections} />
           </Block>
         )}
 
         {project.workflows && (
-          <Block id="workflows" eyebrow="How it works" title="Workflows & pipelines">
+          <Block id="workflows" eyebrow={t.flowsEyebrow} title={t.flowsTitle}>
             <div className="space-y-6">
               {project.workflows.map((w, i) => (
-                <WorkflowDiagram key={w.title} workflow={w} index={i} />
+                <WorkflowDiagram key={w.title} workflow={w} index={i} legend={t.legend} />
               ))}
             </div>
           </Block>
         )}
 
         {project.dataModel && (
-          <Block id="data-model" eyebrow="Database" title="Data model">
-            <DataModelDiagram model={project.dataModel} />
+          <Block id="data-model" eyebrow={t.dataEyebrow} title={t.dataTitle}>
+            <DataModelDiagram model={project.dataModel} relationshipsLabel={t.relationships} />
           </Block>
         )}
 
         {project.ai && (
-          <Block id="ai" eyebrow="AI boundary" title="Where AI earns its keep">
+          <Block id="ai" eyebrow={t.aiEyebrow} title={t.aiTitle}>
             <ul className="grid gap-3 md:grid-cols-2">
               {project.ai.map((a) => (
                 <li key={a} className="flex gap-3 rounded-xl border border-violet-500/30 bg-surface p-4 text-sm text-foreground/90">
@@ -172,8 +172,8 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           </Block>
         )}
 
-        {project.sections?.map((s) => (
-          <Block key={s.title} id={s.title.toLowerCase().replace(/[^a-z]+/g, "-")} eyebrow="Engineering" title={s.title}>
+        {project.sections?.map((s, i) => (
+          <Block key={s.title} id={`engineering-${i + 1}`} eyebrow={t.engineering} title={s.title}>
             {s.body && <p className="max-w-3xl text-muted">{s.body}</p>}
             {s.bullets && (
               <ul className="max-w-3xl space-y-2">
@@ -190,14 +190,14 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           </Block>
         ))}
 
-        <Block id="stack" eyebrow="Tooling" title="Stack">
+        <Block id="stack" eyebrow={t.stackEyebrow} title={t.stackTitle}>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {project.stack.map((g) => (
               <div key={g.group} className="rounded-xl border border-border bg-surface p-5">
                 <p className="mb-3 font-mono text-xs uppercase tracking-wider text-muted">{g.group}</p>
                 <div className="flex flex-wrap gap-2">
-                  {g.items.map((i) => (
-                    <Tag key={i}>{i}</Tag>
+                  {g.items.map((item) => (
+                    <Tag key={item}>{item}</Tag>
                   ))}
                 </div>
               </div>
@@ -206,10 +206,10 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         </Block>
 
         <Link
-          href={`/work/${next.slug}/`}
+          href={localePath(locale, `/work/${next.slug}/`)}
           className="group flex flex-col gap-1 rounded-xl border border-border bg-surface p-6 transition-colors hover:border-accent sm:flex-row sm:items-center sm:justify-between"
         >
-          <span className="font-mono text-xs uppercase tracking-wider text-muted">Next case study</span>
+          <span className="font-mono text-xs uppercase tracking-wider text-muted">{t.next}</span>
           <span className="text-lg font-semibold group-hover:text-accent">{next.name} →</span>
         </Link>
       </div>

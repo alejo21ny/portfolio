@@ -3,7 +3,13 @@ import type { Architecture } from "@/lib/types";
 // Layered architecture: each lane is a tier (client → edge/API → services →
 // data → third parties). Lanes sit side by side on wide screens with arrows
 // between them, and stack top-to-bottom on phones.
-export default function ArchitectureDiagram({ architecture }: { architecture: Architecture }) {
+export default function ArchitectureDiagram({
+  architecture,
+  connectionsLabel,
+}: {
+  architecture: Architecture;
+  connectionsLabel: string;
+}) {
   const { lanes, flows } = architecture;
   return (
     <figure className="rounded-xl border border-border bg-surface p-5 sm:p-6">
@@ -51,7 +57,7 @@ export default function ArchitectureDiagram({ architecture }: { architecture: Ar
 
       {flows.length > 0 && (
         <figcaption className="mt-6 border-t border-border pt-4">
-          <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-muted">Key connections</p>
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-wider text-muted">{connectionsLabel}</p>
           <ul className="grid gap-1.5 text-sm text-muted md:grid-cols-2">
             {flows.map((f) => (
               <li key={f} className="flex gap-2">

@@ -1,29 +1,27 @@
 import Link from "next/link";
 import type { Project } from "@/lib/types";
-import StatusPill from "./StatusPill";
+import { DICT, localePath, type Locale } from "@/lib/i18n";
 import Tag from "./Tag";
 
-export default function ProjectCard({ project, large }: { project: Project; large?: boolean }) {
+export default function ProjectCard({ project, locale, large }: { project: Project; locale: Locale; large?: boolean }) {
+  const t = DICT[locale].card;
   const lead = project.metrics[0];
   return (
     <article
-      className={`group relative flex flex-col rounded-xl border border-border bg-surface p-6 transition-colors hover:border-accent ${
-        large ? "lg:p-8" : ""
+      className={`group relative flex flex-col rounded-xl border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-lg hover:shadow-accent/5 ${
+        large ? "lg:p-7" : ""
       }`}
     >
-      <div className="mb-4 flex flex-wrap items-center gap-2">
-        <StatusPill status={project.status} />
-        <span className="font-mono text-[11px] uppercase tracking-wider text-muted">{project.category}</span>
-        {project.privateRepo && (
-          <span className="font-mono text-[11px] text-muted" title="Source in a private repository">
-            · private repo
-          </span>
-        )}
+      <div className="mb-4 flex flex-wrap items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-muted">
+        <span className="rounded border border-border px-2 py-0.5">{DICT[locale].categories[project.category]}</span>
+        <span>{project.year}</span>
+        {project.live && <span className="text-emerald-500">· {t.live}</span>}
+        {project.privateRepo && <span className="normal-case tracking-normal">· {t.privateRepo}</span>}
       </div>
 
       <p className="mb-1 text-sm font-medium text-accent">{project.label}</p>
       <h3 className={`mb-3 font-semibold tracking-tight ${large ? "text-2xl" : "text-xl"}`}>
-        <Link href={`/work/${project.slug}/`} className="after:absolute after:inset-0">
+        <Link href={localePath(locale, `/work/${project.slug}/`)} className="after:absolute after:inset-0">
           {project.name}
         </Link>
       </h3>
@@ -42,9 +40,7 @@ export default function ProjectCard({ project, large }: { project: Project; larg
         ))}
       </div>
 
-      <p className="mt-5 text-sm font-medium text-foreground transition-colors group-hover:text-accent">
-        Case study, diagrams &amp; workflows →
-      </p>
+      <p className="mt-5 text-sm font-medium text-foreground transition-colors group-hover:text-accent">{t.cta} →</p>
     </article>
   );
 }

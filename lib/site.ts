@@ -4,25 +4,14 @@
 // of hardcoding a guessed domain.
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fsdgportfolio.netlify.app";
 
+// Locale-independent identity. Copy that changes per language lives in
+// lib/i18n.ts.
 export const SITE = {
   name: "David Gomez",
-  title: "David Gomez | Senior Full-Stack Developer & AI Automation Specialist",
-  role: "Senior Full-Stack Developer & AI Automation Specialist",
-  tagline: "Cloud · APIs · AI Agents · Data · Platform Automation",
-  statement:
-    "I build production software, cloud platforms, API integrations and AI-assisted automation.",
-  description:
-    "Senior full-stack developer specializing in AI-assisted automation, cloud platforms, and API integrations — production software built with Laravel, React, TypeScript, Node.js, and modern cloud infrastructure.",
   location: "Medellín, Colombia",
-  email: "alejo21ny@hotmail.com",
+  // Routed by Cloudflare Email Routing to David's inbox.
+  email: "david@gworksystems.com",
   github: "https://github.com/alejo21ny",
   linkedin: "https://www.linkedin.com/in/dgomezbuiles",
+  gwork: "https://gworksystems.com",
 } as const;
-
-export const NAV = [
-  { href: "#work", label: "Work" },
-  { href: "#process", label: "Process" },
-  { href: "#expertise", label: "Expertise" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-] as const;

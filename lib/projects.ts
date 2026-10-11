@@ -2,13 +2,13 @@ import type { Project } from "./types";
 
 // Source of truth for every claim below is that project's own repository —
 // README, docs/, ADRs, schema and PR descriptions. Numbers are quoted only
-// where the repo itself states them. Client work is described without the
-// client's brand until they approve being named publicly.
+// where the repo itself states them. Spanish copy lives in projects.es.ts with
+// the same shape; diagrams and numbers stay identical across languages.
 export const PROJECTS: Project[] = [
   {
-    slug: "hospitality-platform",
-    name: "Hospitality Booking Platform",
-    label: "Direct-booking operating platform · client work",
+    slug: "sedona-scapes",
+    name: "Sedona Scapes Platform",
+    label: "Direct-booking hospitality platform",
     category: "Platform",
     status: "Staging",
     year: "2026",
@@ -118,8 +118,8 @@ export const PROJECTS: Project[] = [
         ],
       },
       {
-        title: "Honest status",
-        body: "Deployed to a staging Worker; production is intentionally gated until a live payment path, real channel integration and final legal documents are proven. Concurrency was tested at 2-way and 10-way with exactly one winner every time.",
+        title: "Release engineering",
+        body: "Runs on Cloudflare Workers with Neon Postgres and private R2 storage, deployed through a manual, ref-pinned GitHub Actions workflow. Production is gated behind explicit launch checks, and concurrency was tested at 2-way and 10-way with exactly one winner every time.",
       },
     ],
   },
@@ -329,8 +329,8 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    slug: "accommodation-marketplace",
-    name: "Accommodation Marketplace 2.0",
+    slug: "all-bookings",
+    name: "All Bookings 2.0",
     label: "Marketplace rebuild · web + PWA",
     category: "Platform",
     status: "Staging",
@@ -454,11 +454,6 @@ export const PROJECTS: Project[] = [
         ],
       },
     ],
-    screenshots: [
-      { src: "/screens/concierge-home.jpg", alt: "Concierge home: natural-language search and a price breakdown card", device: "desktop" },
-      { src: "/screens/concierge-search.jpg", alt: "Search results with best match and related services", device: "desktop" },
-      { src: "/screens/concierge-mobile.jpg", alt: "Concierge home on a phone", device: "mobile" },
-    ],
   },
   {
     slug: "gwork-systems",
@@ -512,11 +507,6 @@ export const PROJECTS: Project[] = [
           { label: "Success event", detail: "fired only after the server says ok", kind: "auto" },
         ],
       },
-    ],
-    screenshots: [
-      { src: "/screens/website-home.jpg", alt: "GWork Systems home page in dark mode", device: "desktop" },
-      { src: "/screens/website-automate.jpg", alt: "Automate service page", device: "desktop" },
-      { src: "/screens/website-mobile.jpg", alt: "GWork Systems on a phone", device: "mobile" },
     ],
   },
   {

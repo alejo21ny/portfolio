@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
   basePath,
   trailingSlash: true,
   images: { unoptimized: true },
+  experimental: { globalNotFound: true },
 };
 
 export default nextConfig;

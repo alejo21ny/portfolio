@@ -18,7 +18,7 @@ Diagrams are CSS/SVG components (`app/components/diagrams/`), not images, so the
 
 Next.js 15 (App Router, static export) · React 19 · TypeScript · Tailwind CSS v4 · ESLint 9
 
-No UI/animation/theme libraries — the light/dark/system toggle and motion are hand-rolled with a small blocking inline script (avoids a flash of the wrong theme) and plain CSS, kept intentionally dependency-light.
+English is the default at `/`, Spanish at `/es/`. Dark theme is the default; visitors can switch to light (remembered in localStorage). No UI/animation/theme/i18n libraries — the theme toggle and motion are hand-rolled with a small blocking inline script (avoids a flash of the wrong theme) and plain CSS, kept intentionally dependency-light.
 
 ## Local setup
 
@@ -48,17 +48,21 @@ Produces a fully static export in `out/` (`output: "export"` in `next.config.ts`
 
 ```
 app/
-  layout.tsx            root layout: fonts, metadata, JSON-LD, theme script
-  page.tsx               single-page home: Hero / Work / Expertise / About / Contact
-  globals.css             design tokens (light/dark), motion, focus states
-  robots.ts / sitemap.ts  generated at build time
-  work/[slug]/page.tsx     one statically generated case study per project
-  components/              Navbar, Footer, ThemeToggle, ProjectCard, SystemMap, Screens, ...
+  (en)/                   English at the root: layout, home, work/[slug]
+  (es)/es/                Spanish under /es: same pages, own <html lang="es">
+  global-not-found.tsx     bilingual 404 (the site has one root layout per language)
+  globals.css             design tokens (dark default, light option), motion, focus
+  robots.ts / sitemap.ts  generated at build time, with hreflang alternates
+  components/              RootShell, HomePage, CaseStudyPage, Navbar, LanguageSwitch, ...
     diagrams/              ArchitectureDiagram, WorkflowDiagram, DataModelDiagram
 lib/
   site.ts                 site-wide copy/config (name, links, SEO strings)
   types.ts                project / diagram types
-  projects.ts             all project content + diagram data
+  i18n.ts                 locales, UI copy (EN/ES), localePath()
+  projects.ts             project content + diagram data (English)
+  projects.es.ts          the same projects in Spanish, identical shape
+  screens.ts              screenshots per project (bilingual alt text)
+  earlier.ts              smaller public projects ("More projects")
   asset.ts                base-path-aware URLs for public/ files
 public/screens/           screenshots captured from each app running locally
 ```

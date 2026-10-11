@@ -1,19 +1,22 @@
 // Hero illustration: the kinds of systems on this site wired around one
 // operator. Static SVG with a CSS dash animation on the edges (disabled under
 // prefers-reduced-motion by the global rule in globals.css).
-const NODES = [
-  { x: 70, y: 60, label: "Products", sub: "marketplaces · booking" },
-  { x: 330, y: 60, label: "AI & Agents", sub: "assistants · LLM tools" },
-  { x: 40, y: 175, label: "Automation", sub: "scrapers · schedulers" },
-  { x: 360, y: 175, label: "Integrations", sub: "CRM · payments · APIs" },
-  { x: 90, y: 290, label: "Data", sub: "Postgres · PostGIS" },
-  { x: 310, y: 290, label: "Cloud & Edge", sub: "Cloudflare · Docker · CI" },
+const POSITIONS = [
+  { x: 70, y: 60 },
+  { x: 330, y: 60 },
+  { x: 40, y: 175 },
+  { x: 360, y: 175 },
+  { x: 90, y: 290 },
+  { x: 310, y: 290 },
 ] as const;
+
+type Labels = { center: [string, string]; nodes: [string, string][]; aria: string };
 
 const CX = 200;
 const CY = 175;
 
-export default function SystemMap() {
+export default function SystemMap({ labels }: { labels: Labels }) {
+  const NODES = POSITIONS.map((p, i) => ({ ...p, label: labels.nodes[i][0], sub: labels.nodes[i][1] }));
   return (
     <div className="relative mx-auto w-full max-w-md">
       <div className="bg-grid bg-grid-fade absolute inset-0 rounded-2xl" aria-hidden />
@@ -21,7 +24,7 @@ export default function SystemMap() {
         viewBox="-30 0 460 350"
         className="relative w-full"
         role="img"
-        aria-label="Diagram: products, AI agents, automation, integrations, data and cloud connected to one engineering core"
+        aria-label={labels.aria}
       >
         {NODES.map((n) => (
           <line
@@ -39,10 +42,10 @@ export default function SystemMap() {
           <circle cx={CX} cy={CY} r={46} className="fill-surface stroke-accent" strokeWidth={1.5} />
           <circle cx={CX} cy={CY} r={56} className="animate-pulse-soft fill-none stroke-accent/30" />
           <text x={CX} y={CY - 4} textAnchor="middle" className="fill-foreground text-[13px] font-semibold">
-            Engineering
+            {labels.center[0]}
           </text>
           <text x={CX} y={CY + 13} textAnchor="middle" className="fill-muted font-mono text-[9px]">
-            core
+            {labels.center[1]}
           </text>
         </g>
 
