@@ -39,9 +39,11 @@ export default function Screens({ shots, locale }: { shots: Shot[]; locale: Loca
   const mobile = shots.filter((s) => s.device === "mobile");
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[1fr_auto]">
-      <div className="grid gap-6">
-        {desktop.map((s) => (
-          <BrowserFrame key={s.src} shot={s} alt={s.alt[locale]} />
+      <div className="grid gap-6 md:grid-cols-2">
+        {desktop.map((s, i) => (
+          <div key={s.src} className={i === 0 || desktop.length < 4 ? "md:col-span-2" : ""}>
+            <BrowserFrame shot={s} alt={s.alt[locale]} />
+          </div>
         ))}
       </div>
       {mobile.length > 0 && (

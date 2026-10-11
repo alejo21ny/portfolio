@@ -4,6 +4,28 @@ import type { Screenshot } from "./types";
 // Kept apart from the project copy so both languages share one list; alt text
 // is English and Spanish.
 export const SCREENS: Record<string, Screenshot[]> = {
+  "sedona-scapes": [
+    { src: "/screens/sedona-home.jpg", device: "desktop", alt: { en: "Guest site: hero with date search", es: "Sitio de huéspedes: portada con búsqueda por fechas" } },
+    { src: "/screens/sedona-property-booking.jpg", device: "desktop", alt: { en: "Property page with amenities and booking panel", es: "Página de propiedad con amenidades y panel de reserva" } },
+    { src: "/screens/sedona-checkout.jpg", device: "desktop", alt: { en: "Checkout: guest details with a held quote", es: "Checkout: datos del huésped con cotización retenida" } },
+    { src: "/screens/sedona-confirmed.jpg", device: "desktop", alt: { en: "Reservation confirmed after the verified payment webhook", es: "Reserva confirmada tras el webhook de pago verificado" } },
+    { src: "/screens/sedona-guest-stays.jpg", device: "desktop", alt: { en: "Guest portal: my stays (email OTP sign-in)", es: "Portal de huéspedes: mis estadías (acceso con OTP)" } },
+    { src: "/screens/sedona-admin-dashboard.jpg", device: "desktop", alt: { en: "Admin dashboard: live operations from PostgreSQL", es: "Panel admin: operación en vivo desde PostgreSQL" } },
+    { src: "/screens/sedona-admin-reservations.jpg", device: "desktop", alt: { en: "Admin reservations with filters", es: "Reservas en el admin con filtros" } },
+    { src: "/screens/sedona-admin-calendar.jpg", device: "desktop", alt: { en: "Availability calendar: reservations, holds and manual blocks", es: "Calendario: reservas, retenciones y bloqueos manuales" } },
+    { src: "/screens/sedona-mobile.jpg", device: "mobile", alt: { en: "Guest site on a phone", es: "Sitio de huéspedes en el teléfono" } },
+  ],
+  "all-bookings": [
+    { src: "/screens/allbookings-home.jpg", device: "desktop", alt: { en: "Marketplace home with destination search", es: "Inicio del marketplace con búsqueda por destino" } },
+    { src: "/screens/allbookings-stay.jpg", device: "desktop", alt: { en: "Stay detail with gallery and booking panel", es: "Detalle del alojamiento con galería y panel de reserva" } },
+    { src: "/screens/allbookings-checkout.jpg", device: "desktop", alt: { en: "Checkout with frozen price breakdown", es: "Checkout con desglose de precio congelado" } },
+    { src: "/screens/allbookings-confirmation.jpg", device: "desktop", alt: { en: "Booking confirmed, read from the database", es: "Reserva confirmada, leída desde la base de datos" } },
+    { src: "/screens/allbookings-host-calendar.jpg", device: "desktop", alt: { en: "Host calendar", es: "Calendario del anfitrión" } },
+    { src: "/screens/allbookings-host-earnings.jpg", device: "desktop", alt: { en: "Host earnings: gross, commission, net and payouts", es: "Ganancias del anfitrión: bruto, comisión, neto y pagos" } },
+    { src: "/screens/allbookings-admin-finance.jpg", device: "desktop", alt: { en: "Admin finance: GMV, fees, commissions and payables", es: "Finanzas admin: GMV, tarifas, comisiones y cuentas por pagar" } },
+    { src: "/screens/allbookings-admin-property-approvals.jpg", device: "desktop", alt: { en: "Admin property approvals before publishing", es: "Aprobación de propiedades antes de publicar" } },
+    { src: "/screens/allbookings-mobile.jpg", device: "mobile", alt: { en: "Marketplace on a phone (installable PWA)", es: "Marketplace en el teléfono (PWA instalable)" } },
+  ],
   "digital-concierge": [
     { src: "/screens/concierge-home.jpg", device: "desktop", alt: { en: "Home: natural-language search and a price breakdown card", es: "Inicio: búsqueda en lenguaje natural y desglose de precio" } },
     { src: "/screens/concierge-search.jpg", device: "desktop", alt: { en: "Search results with best match and related services", es: "Resultados con la mejor coincidencia y servicios relacionados" } },
