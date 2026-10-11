@@ -37,6 +37,18 @@ function PhoneFrame({ shot, alt }: { shot: Shot; alt: string }) {
 export default function Screens({ shots, locale }: { shots: Shot[]; locale: Locale }) {
   const desktop = shots.filter((s) => s.device === "desktop");
   const mobile = shots.filter((s) => s.device === "mobile");
+
+  // Mobile-only products (e.g. an Android app) get a row of phones instead.
+  if (desktop.length === 0) {
+    return (
+      <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+        {mobile.map((s) => (
+          <PhoneFrame key={s.src} shot={s} alt={s.alt[locale]} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[1fr_auto]">
       <div className="grid gap-6 md:grid-cols-2">

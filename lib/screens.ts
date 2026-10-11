@@ -4,6 +4,13 @@ import type { Screenshot } from "./types";
 // Kept apart from the project copy so both languages share one list; alt text
 // is English and Spanish.
 export const SCREENS: Record<string, Screenshot[]> = {
+  cancha: [
+    { src: "/screens/cancha-match-admin.jpg", device: "mobile", alt: { en: "Match admin: spots, missing goalkeeper, collected payments", es: "Administrar partido: cupos, arquero faltante y recaudo" } },
+    { src: "/screens/cancha-lineup.jpg", device: "mobile", alt: { en: "Interactive lineup on the pitch with open positions", es: "Alineación interactiva en la cancha con posiciones libres" } },
+    { src: "/screens/cancha-formation.jpg", device: "mobile", alt: { en: "Pick a formation per team", es: "Elegir formación por equipo" } },
+    { src: "/screens/cancha-profile.jpg", device: "mobile", alt: { en: "Player card with verified stats and Cancha Score", es: "Tarjeta de jugador con datos verificados y Cancha Score" } },
+    { src: "/screens/cancha-profile-edit.jpg", device: "mobile", alt: { en: "Profile: payments, teams, notifications and self-reported info", es: "Perfil: pagos, equipos, notificaciones e información autoreportada" } },
+  ],
   "lead-engine": [
     { src: "/screens/leadengine-dashboard.jpg", device: "desktop", alt: { en: "Businesses dashboard: counters, filters and CRM status per lead (sample data)", es: "Panel de empresas: contadores, filtros y estado CRM por lead (datos de ejemplo)" } },
     { src: "/screens/leadengine-detail.jpg", device: "desktop", alt: { en: "Lead detail: contact channels, allowed pipeline moves and notes", es: "Detalle del lead: canales de contacto, movimientos permitidos del pipeline y notas" } },
