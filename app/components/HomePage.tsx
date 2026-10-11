@@ -43,7 +43,7 @@ export default function HomePage({ locale }: { locale: Locale }) {
     { value: `${projects.length}`, label: t.stats.systems },
     { value: `${Math.floor(totalTests / 100) * 100}+`, label: t.stats.tests },
     { value: `${CLIENT_SITES.length}`, label: t.stats.clients },
-    { value: "10+", label: t.stats.years },
+    { value: "15+", label: t.stats.years },
   ];
 
   const contacts = [

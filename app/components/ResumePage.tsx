@@ -3,7 +3,7 @@ import Link from "next/link";
 import ExternalLink from "./ExternalLink";
 import { asset } from "@/lib/asset";
 import { localePath, type Locale } from "@/lib/i18n";
-import { RESUME, RESUME_FILES, RESUME_UI, formatRange } from "@/lib/resume";
+import { RESUME, RESUME_FILES, RESUME_UI, formatRange, jobCompany, jobPeriod } from "@/lib/resume";
 
 export type ResumeVariant = "designed" | "ats";
 
@@ -91,13 +91,13 @@ function Experience({ locale }: { locale: Locale }) {
                 {job.role[locale]} <span className="cv-at">·</span>{" "}
                 {job.url ? (
                   <ExternalLink href={job.url} className="cv-company">
-                    {job.company}
+                    {jobCompany(job, locale)}
                   </ExternalLink>
                 ) : (
-                  <span className="cv-company">{job.company}</span>
+                  <span className="cv-company">{jobCompany(job, locale)}</span>
                 )}
               </h3>
-              <span className="cv-date">{formatRange(job.start, job.end, locale)}</span>
+              <span className="cv-date">{jobPeriod(job, locale)}</span>
             </div>
             <p className="cv-meta">
               {job.location[locale]}
@@ -112,7 +112,7 @@ function Experience({ locale }: { locale: Locale }) {
               <li key={b}>{b}</li>
             ))}
           </ul>
-          <p className="cv-stack">{job.stack.join(" · ")}</p>
+          {job.stack.length > 0 && <p className="cv-stack">{job.stack.join(" · ")}</p>}
         </article>
       ))}
     </div>
@@ -143,7 +143,7 @@ function Projects({ locale }: { locale: Locale }) {
   return (
     <>
       <p className="cv-small -mt-1 mb-2">{ui.projectsNote}</p>
-      <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+      <ul className="space-y-2">
         {RESUME.projects.slice(0, 4).map((p) => (
           <li key={p.slug} className="cv-keep">
             <ExternalLink href={`${site}${localePath(locale, `/work/${p.slug}/`)}`} className="cv-h4 cv-link">
@@ -218,12 +218,13 @@ function Sidebar({ locale }: { locale: Locale }) {
             ))}
         </ul>
         <p className="cv-small mt-2">
-          {ui.moreCerts}:{" "}
-          {RESUME.certifications
-            .filter((c) => !c.key)
-            .map((c) => `${c.name} (${c.year})`)
-            .join(" · ")}
+          {ui.moreCerts(RESUME.certifications.filter((c) => !c.key).length)}
         </p>
+      </section>
+
+      <section>
+        <Heading>{ui.projects}</Heading>
+        <Projects locale={locale} />
       </section>
     </aside>
   );
@@ -277,12 +278,6 @@ function Designed({ locale }: { locale: Locale }) {
         </section>
         <Sidebar locale={locale} />
       </div>
-
-      <section>
-        <Heading>{ui.projects}</Heading>
-        <Projects locale={locale} />
-      </section>
-
     </article>
   );
 }
@@ -327,10 +322,10 @@ function Ats({ locale }: { locale: Locale }) {
           {RESUME.experience.map((job) => (
             <div key={`${job.company}-${job.start}`} className="cv-keep">
               <p className="cv-h3">
-                {job.role[locale]} — {job.company}
+                {job.role[locale]} — {jobCompany(job, locale)}
               </p>
               <p className="cv-small">
-                {formatRange(job.start, job.end, locale)} | {job.location[locale]}
+                {jobPeriod(job, locale)} | {job.location[locale]}
               </p>
               <ul className="cv-list">
                 {job.bullets[locale].map((b) => (

@@ -206,7 +206,7 @@ const EN: Dict = {
     eyebrow: "About",
     title: "About David",
     paragraphs: [
-      "Based in Medellín, Colombia. 10+ years across software, cloud, internal systems, data and automation. Bilingual — English / Spanish.",
+      "Based in Medellín, Colombia. 15+ years across software, cloud, internal systems, data and automation — and seven years founding and running my own hospitality business. Bilingual — English / Spanish.",
       "A senior hands-on engineer who takes products from a blank repo to production: architecture, backend, frontend, mobile, payments, infrastructure and the automation around them.",
     ],
     gwork: ["I also run ", ", a practice for software, AI automation, cloud and digital security."],
@@ -402,7 +402,7 @@ const ES: Dict = {
     eyebrow: "Sobre mí",
     title: "Sobre David",
     paragraphs: [
-      "Vivo en Medellín, Colombia. Más de 10 años en software, cloud, sistemas internos, datos y automatización. Bilingüe — inglés / español.",
+      "Vivo en Medellín, Colombia. Más de 15 años en software, cloud, sistemas internos, datos y automatización — y siete años fundando y dirigiendo mi propio negocio hotelero. Bilingüe — inglés / español.",
       "Ingeniero senior que pone las manos en el código y lleva productos desde un repo vacío hasta producción: arquitectura, backend, frontend, móvil, pagos, infraestructura y la automatización alrededor.",
     ],
     gwork: ["También dirijo ", ", una firma de software, automatización con IA, cloud y seguridad digital."],

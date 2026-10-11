@@ -12,12 +12,16 @@ export type ResumeLocale = keyof L;
 // "YYYY-MM" or "YYYY". `end: null` means the role is current.
 export type Job = {
   company: string;
+  // Localized company label when it is a description rather than a name.
+  companyL?: L;
   url?: string;
   role: L;
   location: L;
   start: string;
   end: string | null;
   note?: L;
+  // Shown instead of the computed date range when exact months aren't known.
+  period?: L;
   bullets: LL;
   stack: string[];
 };
@@ -50,21 +54,21 @@ export const RESUME = {
   },
 
   summary: {
-    en: "Senior full-stack engineer with 10+ years across software development, cloud and platform operations, IT systems, data and automation. I take products from an empty repository to production — architecture, backend, frontend, mobile, payments and infrastructure — and build the AI-assisted automation around them. Hands-on with PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker and Terraform, with a habit of written decisions, automated tests and staged, reversible releases. Bilingual English/Spanish, used to remote work with international teams.",
-    es: "Ingeniero full-stack senior con más de 10 años en desarrollo de software, operación de plataformas cloud, sistemas de TI, datos y automatización. Llevo productos desde un repositorio vacío hasta producción — arquitectura, backend, frontend, móvil, pagos e infraestructura — y construyo la automatización con IA a su alrededor. Trabajo con PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker y Terraform; documento decisiones, automatizo pruebas y despliego por etapas. Bilingüe inglés/español, con experiencia remota en equipos internacionales.",
+    en: "Senior full-stack engineer with 15+ years in software and IT — and 20+ years of work that includes founding and running my own hospitality business. I take products from an empty repository to production — architecture, backend, frontend, mobile, payments and infrastructure — and build the AI-assisted automation around them. Hands-on with PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker and Terraform. Having run a business end to end, I build with operations, customers and margins in mind. Bilingual English/Spanish, used to remote work with international teams.",
+    es: "Ingeniero full-stack senior con más de 15 años en software y TI — y más de 20 años de trayectoria que incluye fundar y dirigir mi propio negocio hotelero. Llevo productos desde un repositorio vacío hasta producción — arquitectura, backend, frontend, móvil, pagos e infraestructura — y construyo la automatización con IA a su alrededor. Trabajo con PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker y Terraform. Haber dirigido un negocio completo me hace construir pensando en la operación, el cliente y los márgenes. Bilingüe inglés/español, con experiencia remota en equipos internacionales.",
   } satisfies L,
 
   highlights: {
     en: [
+      "Founded and ran a 7-property hospitality business (2013 – 2020): operations, brand, marketing, finance and its own booking system",
       "8 systems documented as full case studies — architecture, workflows, data model — with 1,500+ automated tests",
       "Wompi, PayU and ePayco payments behind one pattern: signed webhooks, idempotency and an append-only ledger",
-      "14 client websites live today in healthcare, hospitality, recruitment, finance, education and non-profit",
       "AI-assisted bots and workflow automation in production on Slack, AWS and Cloudflare",
     ],
     es: [
+      "Fundé y dirigí un negocio hotelero de 7 propiedades (2013 – 2020): operación, marca, marketing, finanzas y su propio sistema de reservas",
       "8 sistemas documentados como casos de estudio completos — arquitectura, flujos y modelo de datos — con más de 1.500 pruebas automatizadas",
       "Pagos con Wompi, PayU y ePayco bajo un mismo patrón: webhooks firmados, idempotencia y libro contable de solo inserción",
-      "14 sitios de clientes en línea hoy en salud, hotelería, reclutamiento, finanzas, educación y sin ánimo de lucro",
       "Bots con IA y automatización de flujos en producción sobre Slack, AWS y Cloudflare",
     ],
   } satisfies LL,
@@ -82,13 +86,11 @@ export const RESUME = {
         en: [
           "Design and build production platforms end to end: a direct-booking hospitality platform (Sedona Scapes), a real-time sports marketplace with an Android app (Cancha), a marketplace rebuild (All Bookings 2.0) and a B2B lead-intelligence engine.",
           "Integrated Wompi, PayU and ePayco behind provider-neutral adapters — hosted checkout, signed and deduplicated webhooks, append-only ledger and reconciliation; no card data touches the platforms.",
-          "Made double-bookings and oversold matches impossible at the database level (PostgreSQL EXCLUDE constraints, unique indexes, advisory locks) and backed each system with DB, integration and end-to-end test suites.",
           "Run an AI-augmented delivery process: architecture decision records first, coding agents inside automated gates (types, lint, unit, DB, E2E, accessibility, CSP), human review and staged releases.",
         ],
         es: [
           "Diseño y construyo plataformas de punta a punta: una plataforma de reservas directas para hotelería (Sedona Scapes), un marketplace deportivo en tiempo real con app Android (Cancha), la reconstrucción de un marketplace (All Bookings 2.0) y un motor de inteligencia de leads B2B.",
           "Integré Wompi, PayU y ePayco detrás de adaptadores neutrales — checkout alojado, webhooks firmados y deduplicados, libro contable de solo inserción y conciliación; ningún dato de tarjeta toca las plataformas.",
-          "Hice imposibles las reservas dobles y los partidos sobrevendidos desde la base de datos (restricciones EXCLUDE, índices únicos y advisory locks en PostgreSQL) y respaldé cada sistema con pruebas de BD, integración y end-to-end.",
           "Trabajo con un proceso potenciado con IA: decisiones de arquitectura escritas primero, agentes de código dentro de controles automáticos (tipos, lint, unitarias, BD, E2E, accesibilidad, CSP), revisión humana y despliegues por etapas.",
         ],
       },
@@ -98,7 +100,7 @@ export const RESUME = {
       company: "indie.io",
       role: { en: "IT Manager — IT & Internal Systems", es: "IT Manager — TI y Sistemas Internos" },
       location: { en: "Remote", es: "Remoto" },
-      start: "2026-06",
+      start: "2026-05",
       end: "2026-09",
       bullets: {
         en: [
@@ -115,21 +117,36 @@ export const RESUME = {
       stack: ["AWS", "Cloudflare", "Terraform", "Docker", "PostgreSQL", "Slack", "LLM APIs", "GitHub Actions"],
     },
     {
+      company: "Major Media",
+      role: { en: "Full-Stack Developer — WordPress (Contract)", es: "Desarrollador Full-Stack — WordPress (Contrato)" },
+      location: { en: "Remote · concurrent project", es: "Remoto · proyecto en paralelo" },
+      start: "2026",
+      end: "2026",
+      period: { en: "2026 · several months", es: "2026 · varios meses" },
+      bullets: {
+        en: [
+          "Full-stack development for an agency's client sites: custom WordPress themes and plugins, integrations, performance and maintenance.",
+        ],
+        es: [
+          "Desarrollo full-stack para los sitios de clientes de una agencia: temas y plugins de WordPress a la medida, integraciones, rendimiento y mantenimiento.",
+        ],
+      },
+      stack: ["WordPress", "PHP", "JavaScript", "Performance"],
+    },
+    {
       company: "Fiserv",
-      role: { en: "Technical Writer & Developer", es: "Technical Writer y Desarrollador" },
+      role: { en: "Full-Stack Developer & API Technical Writer", es: "Desarrollador Full-Stack y Technical Writer de APIs" },
       location: { en: "Remote", es: "Remoto" },
       start: "2026-01",
-      end: "2026-06",
+      end: "2026-04",
       bullets: {
         en: [
           "Supported the Vision Next platform with developer-facing technical and API documentation for financial-system workflows.",
           "Analyzed REST APIs with Swagger/OpenAPI, documenting endpoints, authentication, request/response models, status codes and error handling.",
-          "Created reusable Markdown/API documentation templates and worked with engineering teams on architecture, integrations, runbooks and developer guidance.",
         ],
         es: [
           "Apoyé la plataforma Vision Next con documentación técnica y de APIs para desarrolladores sobre flujos de sistemas financieros.",
           "Analicé APIs REST con Swagger/OpenAPI, documentando endpoints, autenticación, modelos de request/response, códigos de estado y manejo de errores.",
-          "Creé plantillas reutilizables de documentación en Markdown y trabajé con los equipos de ingeniería en arquitectura, integraciones, runbooks y guías para desarrolladores.",
         ],
       },
       stack: ["REST APIs", "Swagger / OpenAPI", "Markdown", "Docs-as-code"],
@@ -166,13 +183,11 @@ export const RESUME = {
           "Led full-stack delivery with React, Redux, TypeScript, Laravel and PostgreSQL for the virtual-assistant management and recruitment platform.",
           "Built and optimized REST APIs and automated operations through HubSpot, Zapier and GoHighLevel — lead pipelines, follow-ups, forms and calendars — reducing manual workload by 40%.",
           "Ran sprint planning, code reviews and mentoring; documented APIs and processes in Confluence, Swagger and Notion.",
-          "Turned Figma designs into responsive, WCAG-aware WordPress pages (Elementor, ACF, WooCommerce) tuned for Core Web Vitals.",
         ],
         es: [
           "Lideré el desarrollo full-stack con React, Redux, TypeScript, Laravel y PostgreSQL para la plataforma de gestión y reclutamiento de asistentes virtuales.",
           "Construí y optimicé APIs REST y automaticé operaciones con HubSpot, Zapier y GoHighLevel — pipelines de leads, seguimientos, formularios y calendarios — reduciendo el trabajo manual en un 40%.",
           "Dirigí la planeación de sprints, revisiones de código y mentorías; documenté APIs y procesos en Confluence, Swagger y Notion.",
-          "Convertí diseños de Figma en páginas WordPress responsive y accesibles (Elementor, ACF, WooCommerce) optimizadas para Core Web Vitals.",
         ],
       },
       stack: ["React", "Redux", "TypeScript", "Laravel", "PostgreSQL", "HubSpot", "Zapier", "WordPress"],
@@ -218,18 +233,16 @@ export const RESUME = {
       company: "Abatech",
       role: { en: "IT Specialist & Systems Integrator", es: "Especialista de TI e Integrador de Sistemas" },
       location: { en: "Medellín", es: "Medellín" },
-      start: "2021-07",
+      start: "2022-07",
       end: "2023-04",
       bullets: {
         en: [
           "Managed hybrid infrastructure across Azure and on-premises servers; automated maintenance with Python and Bash.",
           "Led Docker containerization and CI/CD pipeline setup, and implemented cybersecurity protocols and risk assessments.",
-          "Built WordPress landing pages and internal portals with forms integrated to external APIs.",
         ],
         es: [
           "Administré infraestructura híbrida entre Azure y servidores locales; automaticé el mantenimiento con Python y Bash.",
           "Lideré la contenerización con Docker y la configuración de pipelines CI/CD, e implementé protocolos de ciberseguridad y análisis de riesgos.",
-          "Construí landing pages y portales internos en WordPress con formularios integrados a APIs externas.",
         ],
       },
       stack: ["Azure", "Docker", "CI/CD", "Python", "Bash", "Security"],
@@ -238,8 +251,8 @@ export const RESUME = {
       company: "UNIFI BPO",
       role: { en: "Software Analyst, Developer & UX Collaborator", es: "Analista de Software, Desarrollador y Colaborador UX" },
       location: { en: "Medellín", es: "Medellín" },
-      start: "2019-04",
-      end: "2021-07",
+      start: "2021-10",
+      end: "2022-06",
       bullets: {
         en: [
           "Built internal web applications with React, FastAPI and MySQL that improved process efficiency.",
@@ -253,84 +266,116 @@ export const RESUME = {
       stack: ["React", "FastAPI", "MySQL", "Swagger", "Figma"],
     },
     {
-      company: "Freelance",
-      role: { en: "Software Developer & Consultant", es: "Desarrollador de Software y Consultor" },
-      location: { en: "Remote", es: "Remoto" },
-      start: "2017-02",
-      end: "2019-04",
+      company: "CarNow",
+      role: { en: "IT & Systems Specialist", es: "Especialista de TI y Sistemas" },
+      location: { en: "Medellín · U.S. company", es: "Medellín · empresa de EE. UU." },
+      start: "2021-04",
+      end: "2021-09",
       bullets: {
         en: [
-          "Delivered SaaS solutions with React, Node.js, Laravel and MongoDB, integrating Stripe, Twilio and Firebase — from architecture and deployment to user manuals and training.",
-          "Built WordPress solutions for small businesses: WooCommerce stores, multilingual corporate sites (WPML), booking systems and custom payment and booking plugins.",
+          "Set up and supported the systems of a new U.S. company starting operations in Medellín: accounts, equipment, software and day-to-day user support.",
         ],
         es: [
-          "Entregué soluciones SaaS con React, Node.js, Laravel y MongoDB, integrando Stripe, Twilio y Firebase — desde la arquitectura y el despliegue hasta manuales y capacitación.",
-          "Construí soluciones WordPress para pymes: tiendas WooCommerce, sitios corporativos multilingües (WPML), sistemas de reservas y plugins a la medida de pagos y reservas.",
+          "Monté y soporté los sistemas de una nueva empresa estadounidense que iniciaba operaciones en Medellín: cuentas, equipos, software y soporte diario a usuarios.",
         ],
       },
-      stack: ["React", "Node.js", "Laravel", "MongoDB", "Stripe", "Twilio", "WordPress"],
+      stack: [],
     },
     {
-      company: "Conquistadores Home, La Villa",
-      role: { en: "IT Specialist, Full-Stack Developer & Team Lead", es: "Especialista de TI, Desarrollador Full-Stack y Líder de Equipo" },
-      location: { en: "Medellín", es: "Medellín" },
-      start: "2014-02",
-      end: "2017-01",
+      company: "The Charlee Hotel",
+      url: "https://www.thecharlee.com/",
+      role: { en: "Night Manager", es: "Gerente Nocturno" },
+      location: { en: "El Poblado, Medellín", es: "El Poblado, Medellín" },
+      start: "2020-09",
+      end: "2021-03",
       bullets: {
         en: [
-          "Built custom booking and management systems with Laravel, Bootstrap, JavaScript and MySQL, plus the corporate website with live availability.",
-          "Led a small technical team, set coding standards and ran secure server infrastructure with regular backups.",
+          "Ran overnight operations of a boutique hotel as it reopened after the lockdowns: front desk, night audit, guest service, security and the hotel's systems.",
         ],
         es: [
-          "Desarrollé sistemas de reservas y gestión a la medida con Laravel, Bootstrap, JavaScript y MySQL, y el sitio corporativo con disponibilidad en vivo.",
-          "Lideré un pequeño equipo técnico, definí estándares de código y administré una infraestructura de servidores segura con copias de respaldo periódicas.",
+          "Dirigí la operación nocturna de un hotel boutique en su reapertura tras las cuarentenas: recepción, auditoría nocturna, servicio al huésped, seguridad y los sistemas del hotel.",
         ],
       },
-      stack: ["Laravel", "MySQL", "Bootstrap", "JavaScript", "WordPress"],
+      stack: [],
+    },
+    {
+      company: "Own hospitality business",
+      companyL: { en: "Own hospitality business", es: "Negocio hotelero propio" },
+      role: { en: "Founder & General Manager", es: "Fundador y Gerente General" },
+      location: { en: "Medellín", es: "Medellín" },
+      start: "2013-10",
+      end: "2020-03",
+      note: { en: "Own business — closed when the pandemic shut down tourism", es: "Negocio propio — cerró cuando la pandemia paralizó el turismo" },
+      bullets: {
+        en: [
+          "Founded and ran a short-term-rental and hotel operation with seven properties: Apartahotel Santo Tomás, Hotel La Castellana, Nutibara Home, Calasanz Home, Hostería Villa Claudia, Tu Apartamento and Conquistadores Home.",
+          "Owned the whole business: operations, staff, finance and administration, brand and marketing, and distribution on Airbnb and Booking.com.",
+          "Built the in-house booking and property-management system (Laravel, Bootstrap, JavaScript, MySQL) and the websites with live availability; ran the servers, backups and IT.",
+          "In parallel, delivered web projects for small businesses: WooCommerce stores, multilingual WordPress sites (WPML) and integrations with Stripe, Twilio and Firebase.",
+        ],
+        es: [
+          "Fundé y dirigí una operación de alquiler temporal y hotelería con siete propiedades: Apartahotel Santo Tomás, Hotel La Castellana, Nutibara Home, Calasanz Home, Hostería Villa Claudia, Tu Apartamento y Conquistadores Home.",
+          "Responsable de todo el negocio: operación, personal, finanzas y administración, marca y marketing, y distribución en Airbnb y Booking.com.",
+          "Desarrollé el sistema propio de reservas y gestión de propiedades (Laravel, Bootstrap, JavaScript, MySQL) y los sitios web con disponibilidad en vivo; administré servidores, respaldos y TI.",
+          "En paralelo, entregué proyectos web para pymes: tiendas WooCommerce, sitios WordPress multilingües (WPML) e integraciones con Stripe, Twilio y Firebase.",
+        ],
+      },
+      stack: ["Laravel", "MySQL", "JavaScript", "WordPress", "Airbnb / Booking.com", "Operations", "Marketing"],
+    },
+    {
+      company: "Aerolínea de Antioquia (ADA)",
+      role: { en: "Software Developer & IT — .NET", es: "Desarrollador de Software y TI — .NET" },
+      location: { en: "Medellín", es: "Medellín" },
+      start: "2011-02",
+      end: "2013-06",
+      bullets: {
+        en: [
+          "Developed and maintained the airline's ticket and route sales system in .NET (C#) and SQL Server, and fixed back-end data inconsistencies in ticket sales.",
+          "Integrated sales with the DMS accounting system and built internal tools for operational reporting.",
+          "Provided IT support: user help desk, equipment installation and troubleshooting.",
+        ],
+        es: [
+          "Desarrollé y mantuve el sistema de venta de tiquetes y trayectos de la aerolínea en .NET (C#) y SQL Server, y corregí inconsistencias de datos en el backend de ventas.",
+          "Integré las ventas con el sistema contable DMS y construí herramientas internas de reportes operativos.",
+          "Di soporte de TI: mesa de ayuda a usuarios, instalación de equipos y solución de fallas.",
+        ],
+      },
+      stack: ["C#", ".NET", "SQL Server", "DMS integration", "IT support"],
     },
   ] satisfies Job[],
 
   earlier: [
     {
-      company: "Aerolíneas de Antioquia (ADA)",
-      role: { en: "Software Analyst & Developer, IT", es: "Analista y Desarrollador de Software, TI" },
-      start: "2011-02",
-      end: "2013-12",
+      company: "Agenciauto",
+      role: { en: "Systems Support", es: "Soporte de Sistemas" },
+      start: "2013-07",
+      end: "2013-09",
       line: {
-        en: "Internal tools for flight scheduling, passenger management and operational reporting (PHP, C#, SQL Server).",
-        es: "Herramientas internas de programación de vuelos, gestión de pasajeros y reportes operativos (PHP, C#, SQL Server).",
+        en: "Short engagement in IT and systems support.",
+        es: "Vinculación corta en soporte de TI y sistemas.",
       },
     },
     {
-      company: "The Charlee Hotels",
-      role: { en: "Night Auditor — Systems Manager", es: "Auditor Nocturno — Gestor de Sistemas" },
-      start: "2010-01",
-      end: "2011-01",
+      company: "Comfort Suites Laureles · San Joaquín · Sky Plus Best Western · Poblado Plaza",
+      role: { en: "Night Auditor", es: "Auditor Nocturno" },
+      start: "2010",
+      end: "2011",
       line: {
-        en: "Financial and operational systems, audit-process automation and data integrity.",
-        es: "Sistemas financieros y operativos, automatización de auditorías e integridad de datos.",
+        en: "Night audit, front desk and hotel systems across several Medellín hotels.",
+        es: "Auditoría nocturna, recepción y sistemas hoteleros en varios hoteles de Medellín.",
       },
     },
     {
-      company: "Two Cousins Trucking",
-      role: { en: "IT Specialist & Front-End Developer", es: "Especialista de TI y Desarrollador Front-End" },
-      start: "2008-02",
-      end: "2010-01",
+      company: "Affinity Aparta Hotel / EE Hoteles",
+      role: { en: "Receptionist → Night Auditor → Front Desk Manager", es: "Recepcionista → Auditor Nocturno → Jefe de Recepción" },
+      start: "2005",
+      end: "2010",
       line: {
-        en: "Front-end web applications in JavaScript, IT infrastructure and security audits.",
-        es: "Aplicaciones web front-end en JavaScript, infraestructura de TI y auditorías de seguridad.",
+        en: "Six years across the group's properties (Affinity, Alcázar de Oviedo, Rodeo, Novelty Suites and others): reception, night audit, front-desk leadership and hotel systems.",
+        es: "Seis años en las sedes del grupo (Affinity, Alcázar de Oviedo, Rodeo, Novelty Suites y otras): recepción, auditoría nocturna, jefatura de recepción y sistemas hoteleros.",
       },
     },
-    {
-      company: "Novelty Suites S.A.",
-      role: { en: "Night Auditor — Systems", es: "Auditor Nocturno — Sistemas" },
-      period: { en: "6 years", es: "6 años" },
-      line: {
-        en: "Night-audit operations, financial systems and reporting accuracy.",
-        es: "Operación de auditoría nocturna, sistemas financieros y exactitud de reportes.",
-      },
-    },
-  ] satisfies EarlierJob[],
+  ] as EarlierJob[],
 
   // Portfolio case studies shown on the CV; the slug links to /work/<slug>/.
   projects: [
@@ -383,6 +428,7 @@ export const RESUME = {
     { group: { en: "AI & automation", es: "IA y automatización" }, items: ["LLM API integration", "AI-assisted bots", "Grounded assistants", "Zapier / HubSpot / GoHighLevel", "Scrapers & schedulers"] },
     { group: { en: "Payments & integrations", es: "Pagos e integraciones" }, items: ["Wompi", "PayU", "ePayco", "Stripe", "Webhooks & idempotency", "OAuth / SSO"] },
     { group: { en: "Systems & security", es: "Sistemas y seguridad" }, items: ["Okta", "Google Workspace", "MDM", "RBAC / MFA", "CSP / HSTS", "Risk analysis"] },
+    { group: { en: "Business & operations", es: "Negocio y operación" }, items: ["General management", "Hotel operations", "Airbnb / Booking.com", "Team leadership", "Brand & marketing", "Administration & finance"] },
     { group: { en: "Delivery", es: "Entrega" }, items: ["Swagger / OpenAPI", "Technical writing", "Agile / Scrum", "Code review", "Mentoring", "Jira / Confluence / Notion"] },
   ],
 
@@ -432,14 +478,14 @@ export const RESUME_UI = {
     summary: "Profile",
     highlights: "Highlights",
     experience: "Experience",
-    earlier: "Earlier experience (2008 – 2013)",
+    earlier: "Earlier experience — hospitality & IT (2005 – 2013)",
     projects: "Selected projects",
     projectsNote: "Architecture, workflows and data models for each one are in the portfolio.",
     skills: "Skills",
     languages: "Languages",
     education: "Education",
     certifications: "Certifications",
-    moreCerts: "Also",
+    moreCerts: (n: number) => `+${n} more (SENA, Fundación Carlos Slim) — full list in the ATS and Word versions.`,
     contact: "Contact",
     present: "Present",
     references: "References available on request.",
@@ -454,14 +500,14 @@ export const RESUME_UI = {
     summary: "Perfil",
     highlights: "Logros destacados",
     experience: "Experiencia",
-    earlier: "Experiencia anterior (2008 – 2013)",
+    earlier: "Experiencia anterior — hotelería y TI (2005 – 2013)",
     projects: "Proyectos destacados",
     projectsNote: "Arquitectura, flujos y modelo de datos de cada uno en el portafolio.",
     skills: "Habilidades",
     languages: "Idiomas",
     education: "Educación",
     certifications: "Certificaciones",
-    moreCerts: "Además",
+    moreCerts: (n: number) => `+${n} más (SENA, Fundación Carlos Slim) — lista completa en las versiones ATS y Word.`,
     contact: "Contacto",
     present: "Actualidad",
     references: "Referencias disponibles a solicitud.",
@@ -488,6 +534,10 @@ export function formatRange(start: string | undefined, end: string | null | unde
   const to = end === null ? RESUME_UI[locale].present : end ? formatMonth(end, locale) : "";
   return to ? `${formatMonth(start, locale)} – ${to}` : formatMonth(start, locale);
 }
+
+export const jobCompany = (job: Job, locale: ResumeLocale) => job.companyL?.[locale] ?? job.company;
+
+export const jobPeriod = (job: Job, locale: ResumeLocale) => job.period?.[locale] ?? formatRange(job.start, job.end, locale);
 
 // File names of the generated documents in public/cv/.
 export const RESUME_FILES = {

@@ -19,7 +19,7 @@ Texto listo para pegar en LinkedIn. Las fechas y cargos coinciden con `lib/resum
 ## 2. About / Acerca de
 
 **EN**
-> Senior full-stack engineer with 10+ years across software development, cloud and platform operations, IT systems, data and automation.
+> Senior full-stack engineer with 15+ years in software and IT — and 20+ years of work that includes seven years founding and running my own hospitality business in Medellín.
 >
 > I take products from an empty repository to production — architecture, backend, frontend, mobile, payments and infrastructure — and build the AI-assisted automation around them. Recent work includes a direct-booking hospitality platform, a real-time sports marketplace with an Android app, a marketplace rebuild with webhook-confirmed payments, and AI-assisted bots for internal operations on Slack, AWS and Cloudflare.
 >
@@ -32,7 +32,7 @@ Texto listo para pegar en LinkedIn. Las fechas y cargos coinciden con `lib/resum
 > Portfolio with architecture, workflows and data models for every project: https://fsdgportfolio.netlify.app
 
 **ES**
-> Ingeniero full-stack senior con más de 10 años en desarrollo de software, operación de plataformas cloud, sistemas de TI, datos y automatización.
+> Ingeniero full-stack senior con más de 15 años en software y TI — y más de 20 años de trayectoria que incluye siete años fundando y dirigiendo mi propio negocio hotelero en Medellín.
 >
 > Llevo productos desde un repositorio vacío hasta producción — arquitectura, backend, frontend, móvil, pagos e infraestructura — y construyo la automatización con IA a su alrededor. Trabajos recientes: una plataforma de reservas directas para hotelería, un marketplace deportivo en tiempo real con app Android, la reconstrucción de un marketplace con pagos confirmados por webhook y bots con IA para operaciones internas en Slack, AWS y Cloudflare.
 >
@@ -52,19 +52,22 @@ role (same text as the CV). Skills = the stack line.
 | Title | Company | Employment type | Dates | Location |
 |---|---|---|---|---|
 | Founder & Lead Engineer | GWork Systems | Self-employed | 2026 – Present | Medellín · Remote |
-| IT Manager — IT & Internal Systems | indie.io | Full-time | Jun 2026 – Sep 2026 | Remote |
-| Technical Writer & Developer | Fiserv | Full-time | Jan 2026 – Jun 2026 | Remote |
+| IT Manager — IT & Internal Systems | indie.io | Full-time | May 2026 – Sep 2026 | Remote |
+| Full-Stack Developer — WordPress | Major Media | Contract | 2026 (several months) | Remote |
+| Full-Stack Developer & API Technical Writer | Fiserv | Full-time | Jan 2026 – Apr 2026 | Remote |
 | Provisioning Manager — IT Infrastructure & Access | Steward | Full-time | Nov 2023 – Nov 2025 | Remote |
 | Full-Stack Developer & Team Lead | Virtual Latinos | Contract | Jan 2025 – Jun 2025 | Remote |
 | SEO Specialist & Web Developer | U.S.-based staffing company | Contract | Jul 2024 – Oct 2024 | Remote |
 | IT Specialist & Developer | SouthDesk | Full-time | May 2023 – Oct 2023 | Remote |
-| IT Specialist & Systems Integrator | Abatech | Full-time | Jul 2021 – Apr 2023 | Medellín |
-| Software Analyst, Developer & UX Collaborator | UNIFI BPO | Full-time | Apr 2019 – Jul 2021 | Medellín |
-| Software Developer & Consultant | Freelance | Freelance | Feb 2017 – Apr 2019 | Remote |
-| IT Specialist, Full-Stack Developer & Team Lead | Conquistadores Home, La Villa | Full-time | Feb 2014 – Jan 2017 | Medellín |
-| Software Analyst & Developer, IT | Aerolíneas de Antioquia (ADA) | Full-time | Feb 2011 – Dec 2013 | Medellín |
-| Night Auditor — Systems Manager | The Charlee Hotels | Full-time | Jan 2010 – Jan 2011 | Medellín |
-| IT Specialist & Front-End Developer | Two Cousins Trucking | Full-time | Feb 2008 – Jan 2010 | — |
+| IT Specialist & Systems Integrator | Abatech | Full-time | Jul 2022 – Apr 2023 | Medellín |
+| Software Analyst, Developer & UX Collaborator | UNIFI BPO | Full-time | Oct 2021 – Jun 2022 | Medellín |
+| IT & Systems Specialist | CarNow | Full-time | Apr 2021 – Sep 2021 | Medellín |
+| Night Manager | The Charlee Hotel | Full-time | Sep 2020 – Mar 2021 | El Poblado, Medellín |
+| Founder & General Manager | Own hospitality business (Santo Tomás, La Castellana, Nutibara Home, Calasanz Home, Villa Claudia, Tu Apartamento, Conquistadores Home) | Self-employed | Oct 2013 – Mar 2020 | Medellín |
+| Systems Support | Agenciauto | Full-time | Jul 2013 – Sep 2013 | Medellín |
+| Software Developer & IT — .NET | Aerolínea de Antioquia (ADA) | Full-time | Feb 2011 – Jun 2013 | Medellín |
+| Night Auditor | Comfort Suites Laureles, San Joaquín, Sky Plus Best Western, Poblado Plaza | Full-time | 2010 – 2011 | Medellín |
+| Receptionist → Night Auditor → Front Desk Manager | Affinity Aparta Hotel / EE Hoteles | Full-time | 2005 – 2010 | Medellín |
 
 > Employment types are a best guess — adjust them in LinkedIn if they differ.
 

@@ -6,7 +6,7 @@
 import { writeFile, mkdir } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { AlignmentType, BorderStyle, Document, ExternalHyperlink, HeadingLevel, LevelFormat, Packer, Paragraph, TabStopType, TextRun } from "docx";
-import { RESUME, RESUME_FILES, RESUME_UI, formatRange } from "../lib/resume.ts";
+import { RESUME, RESUME_FILES, RESUME_UI, formatRange, jobCompany, jobPeriod } from "../lib/resume.ts";
 
 const ACCENT = "0F766E";
 const MUTED = "52525B";
@@ -56,7 +56,7 @@ function build(locale) {
 
     heading(ui.experience),
     ...RESUME.experience.flatMap((job) => [
-      roleLine(`${job.role[locale]} — ${job.company}`, formatRange(job.start, job.end, locale)),
+      roleLine(`${job.role[locale]} — ${jobCompany(job, locale)}`, jobPeriod(job, locale)),
       small(`${job.location[locale]}${job.note ? ` — ${job.note[locale]}` : ""}`, { keepNext: true }),
       ...job.bullets[locale].map(bullet),
       small(job.stack.join(" · "), { italics: true }),
