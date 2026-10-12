@@ -77,7 +77,7 @@ cargo = las viñetas del CV (botón *Descargar PDF* en el portafolio).
 |---|---|---|---|---|---|
 | 1 | ➕ Agregar | Founder & Technical Lead | GWork Systems | 2026 – actualidad | — |
 | 2 | ➕ Agregar | IT Manager — IT & Internal Systems | indie.io | may 2026 – sep 2026 | — |
-| 3 | ➕ Agregar | Full-Stack Developer — WordPress (contrato) | Major Media | 2026 (mismo mes inicio/fin aprox.) | — |
+| 3 | ➕ Agregar | Full-Stack Web Developer (Contractor) | Major Media | mar 2026 – ago 2026 | — |
 | 4 | ✏️ Editar | Full-Stack Developer & API Technical Writer | Fiserv | ene 2026 – abr 2026 | ene – jun 2026 |
 | 5 | ✏️ Editar | Provisioning Manager — IT Infrastructure & Access | Steward Health Care | nov 2023 – nov 2025 | nov 2023 – dic 2025 |
 | 6 | ✏️ Editar | Full-Stack Developer & Team Lead (contrato) | Virtual Latinos | ene 2025 – jun 2025 | ene – nov 2023 |

@@ -118,11 +118,10 @@ export const RESUME = {
     },
     {
       company: "Major Media",
-      role: { en: "Full-Stack Developer — WordPress (Contract)", es: "Desarrollador Full-Stack — WordPress (Contrato)" },
+      role: { en: "Full-Stack Web Developer (Contractor)", es: "Desarrollador Web Full-Stack (Contratista)" },
       location: { en: "Remote · concurrent project", es: "Remoto · proyecto en paralelo" },
-      start: "2026",
-      end: "2026",
-      period: { en: "2026 · several months", es: "2026 · varios meses" },
+      start: "2026-03",
+      end: "2026-08",
       bullets: {
         en: [
           "Full-stack development for an agency's client sites: custom WordPress themes and plugins, integrations, performance and maintenance.",

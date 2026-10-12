@@ -58,13 +58,13 @@ Firma propia — software, automatización con IA, cloud y seguridad
 • Lideré migraciones e integraciones por etapas — incluidos flujos de comunidad/Discord y herramientas internas — entre sandbox, staging y producción con Terraform, Docker, CI/CD en GitHub, validación E2E, aprobaciones, evidencia de auditoría y planes de rollback.
 ```
 
-## 3. Full-Stack Developer — WordPress (Contract) — Major Media
+## 3. Full-Stack Web Developer (Contractor) — Major Media
 
-- **Cargo (EN):** Full-Stack Developer — WordPress (Contract)
-- **Cargo (ES):** Desarrollador Full-Stack — WordPress (Contrato)
+- **Cargo (EN):** Full-Stack Web Developer (Contractor)
+- **Cargo (ES):** Desarrollador Web Full-Stack (Contratista)
 - **Tipo de empleo:** Contrato
 - **Empresa:** Major Media
-- **Fechas:** 2026 – 2026
+- **Fechas:** mar 2026 – ago 2026
 - **Ubicación:** Medellín, Antioquia, Colombia · **Tipo:** En remoto
 - **Aptitudes:** WordPress, PHP, JavaScript, Web Performance
 
