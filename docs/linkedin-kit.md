@@ -8,6 +8,25 @@ Texto listo para pegar en LinkedIn. Las fechas y cargos coinciden con `lib/resum
 
 ---
 
+## 0. Antes de editar: 0 notificaciones a tu red
+
+1. **Yo → Configuración y privacidad → Visibilidad → "Compartir actualizaciones del perfil con
+   tu red"** (en inglés: *Share profile updates with your network*) → ponlo en **No**.
+2. Al agregar un cargo nuevo, el formulario trae el interruptor **"Notificar a la red"** abajo:
+   déjalo **apagado** en cada uno.
+3. Haz todos los cambios de una vez (titular, Acerca de, experiencia).
+4. Cuando termines, puedes volver a encenderlo. Si quieres que se enteren, mejor una sola
+   publicación tuya ("Actualicé mi portafolio y CV: …") que 20 avisos sueltos.
+
+Editar fechas o descripciones de cargos que ya existen no genera aviso a la red; agregar un
+cargo nuevo sí, si el interruptor queda encendido.
+
+## Titular actual → cámbialo
+
+Hoy dice *"Technical Writer & Developer en Fiserv"*, pero ese cargo ya terminó. Usa el de la
+sección 1.
+
+
 ## 1. Headline (máx. 220 caracteres)
 
 **EN**
@@ -45,6 +64,10 @@ Texto listo para pegar en LinkedIn. Las fechas y cargos coinciden con `lib/resum
 > Portafolio con arquitectura, flujos y modelo de datos de cada proyecto: https://fsdgportfolio.netlify.app/es/
 
 ## 3. Experience / Experiencia — lista de cambios
+
+**Texto listo para pegar, campo por campo (cargo, tipo, fechas, ubicación, descripción EN/ES y
+aptitudes): [`docs/linkedin-experience.md`](linkedin-experience.md).** La tabla de abajo es el
+resumen de qué cambia.
 
 Fechas oficiales = las del CV (`lib/resume.ts`). Esta tabla compara con lo que hay hoy en
 LinkedIn (capturas del 12 oct 2026) y dice qué hacer en cada entrada. La descripción de cada

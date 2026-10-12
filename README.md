@@ -78,7 +78,7 @@ public/screens/           screenshots captured from each app running locally
 | ATS-friendly web CV | `/resume/ats/`, `/es/resume/ats/` |
 | Designed PDF + ATS PDF (EN / ES) | `public/cv/*.pdf` — `npm run build && npm run resume:pdf` |
 | Editable Word (EN / ES) | `public/cv/*.docx` — `npm run resume:docx` |
-| LinkedIn copy | `docs/linkedin-kit.md` |
+| LinkedIn copy | `docs/linkedin-kit.md` + `docs/linkedin-experience.md` (`npm run resume:linkedin`) |
 
 After editing `lib/resume.ts`, regenerate and commit the files in `public/cv/`. The PDF script prints the static export with headless Chromium (`playwright-core`; set `CHROMIUM_PATH` if Playwright's browser isn't installed).
 

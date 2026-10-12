@@ -8,7 +8,8 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "resume:pdf": "node scripts/resume-pdf.mjs",
-    "resume:docx": "node scripts/resume-docx.mjs"
+    "resume:docx": "node scripts/resume-docx.mjs",
+    "resume:linkedin": "node scripts/resume-linkedin.mjs"
   },
   "dependencies": {
     "next": "^15.5.25",
