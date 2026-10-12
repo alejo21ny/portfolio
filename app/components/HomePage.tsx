@@ -9,6 +9,7 @@ import { SITE } from "@/lib/site";
 import { EARLIER } from "@/lib/earlier";
 import { CLIENT_SITES, ARTIST } from "@/lib/clients";
 import { PAYMENTS } from "@/lib/payments";
+import { ROLES, EDUCATION, CERTIFICATIONS, LANGUAGES, RESUME_PDF } from "@/lib/experience";
 import { asset } from "@/lib/asset";
 import { DICT, getProjects, localePath, type Locale } from "@/lib/i18n";
 
@@ -94,6 +95,13 @@ export default function HomePage({ locale }: { locale: Locale }) {
               >
                 {t.hero.secondary}
               </Link>
+              <a
+                href={asset(RESUME_PDF)}
+                download
+                className="rounded-md border border-border bg-surface px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent"
+              >
+                {t.hero.cv} ↓
+              </a>
               <div className="flex items-center gap-1 px-1 text-muted">
                 {contacts.slice(1, 4).map((c) => (
                   <ExternalLink
@@ -166,6 +174,91 @@ export default function HomePage({ locale }: { locale: Locale }) {
               </li>
             ))}
           </ul>
+        </div>
+      </Section>
+
+      <Section id="experience" eyebrow={t.experience.eyebrow} title={t.experience.title}>
+        <p className="-mt-4 mb-10 max-w-2xl text-muted">{t.experience.intro}</p>
+        <div className="grid gap-10 lg:grid-cols-[1fr_20rem]">
+          <ol className="relative border-l border-border">
+            {ROLES.map((r) => (
+              <li key={r.company + r.period.en} className="relative mb-8 pl-6 last:mb-0">
+                <span
+                  className={`absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full ${r.current ? "bg-accent ring-4 ring-accent/20" : "bg-border"}`}
+                  aria-hidden
+                />
+                <p className="font-mono text-xs text-muted">
+                  {r.period[locale]}
+                  {r.current && <span className="ml-2 text-accent">● {t.experience.current}</span>}
+                </p>
+                <h3 className="mt-1 font-semibold tracking-tight">
+                  {r.role[locale]} <span className="text-muted">· {r.company}</span>
+                </h3>
+                <ul className="mt-2 space-y-1 text-sm text-muted">
+                  {r.bullets[locale].map((b) => (
+                    <li key={b} className="flex gap-2">
+                      <span className="text-accent" aria-hidden>
+                        ›
+                      </span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {r.tags.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+            <div className="rounded-xl border border-border bg-surface p-5">
+              <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-muted">{t.experience.education}</h3>
+              <ul className="space-y-3 text-sm">
+                {EDUCATION.map((e) => (
+                  <li key={e.school}>
+                    <p className="font-medium">{e.title[locale]}</p>
+                    <p className="text-muted">
+                      {e.school} · {e.year}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-border bg-surface p-5">
+              <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-muted">{t.experience.certifications}</h3>
+              <ul className="space-y-2 text-sm">
+                {CERTIFICATIONS.map((c) => (
+                  <li key={c.name}>
+                    <p className="font-medium">{c.name}</p>
+                    <p className="text-xs text-muted">
+                      {c.issuer} · {c.year}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl border border-border bg-surface p-5">
+              <h3 className="mb-3 font-mono text-xs uppercase tracking-wider text-muted">{t.experience.languages}</h3>
+              <ul className="space-y-1 text-sm">
+                {LANGUAGES.map((l) => (
+                  <li key={l.name.en} className="flex justify-between gap-3">
+                    <span className="font-medium">{l.name[locale]}</span>
+                    <span className="text-muted">{l.level[locale]}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <a
+              href={asset(RESUME_PDF)}
+              download
+              className="block rounded-xl bg-accent px-5 py-3 text-center text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
+            >
+              {t.experience.download} ↓
+            </a>
+          </aside>
         </div>
       </Section>
 

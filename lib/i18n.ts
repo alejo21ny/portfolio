@@ -23,13 +23,14 @@ type Dict = {
   switchTo: { label: string; short: string };
   theme: { light: string; dark: string };
   menu: string;
-  hero: { primary: string; secondary: string };
+  hero: { primary: string; secondary: string; cv: string };
   stats: { systems: string; tests: string; clients: string; years: string };
   categories: Record<Project["category"], string>;
   systemMap: { center: [string, string]; nodes: [string, string][]; aria: string };
   work: { eyebrow: string; title: string; intro: string; earlier: string; earlierIntro: string };
   card: { cta: string; privateRepo: string; source: string; live: string };
   clients: { eyebrow: string; title: string; intro: string; visit: string };
+  experience: { eyebrow: string; title: string; intro: string; education: string; certifications: string; languages: string; download: string; current: string };
   payments: { eyebrow: string; title: string; intro: string; shipped: string; inProgress: string; usedIn: string; flow: Workflow };
   process: { eyebrow: string; title: string; intro: string; workflow: Workflow; principles: Card[] };
   expertise: { eyebrow: string; title: string; groups: { title: string; icon: string; items: string[] }[] };
@@ -79,16 +80,16 @@ const EN: Dict = {
   badge: "Full-stack · AI automation · Cloud — Medellín, CO",
   nav: [
     { href: "#work", label: "Work" },
+    { href: "#experience", label: "Experience" },
     { href: "#payments", label: "Payments" },
     { href: "#clients", label: "Clients" },
-    { href: "#process", label: "Process" },
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" },
   ],
   switchTo: { label: "Ver en español", short: "ES" },
   theme: { light: "Switch to light theme", dark: "Switch to dark theme" },
   menu: "Open navigation menu",
-  hero: { primary: "See the work", secondary: "Get in touch" },
+  hero: { primary: "See the work", secondary: "Get in touch", cv: "Download CV" },
   stats: {
     systems: "systems with full case studies",
     tests: "automated tests across them",
@@ -117,6 +118,16 @@ const EN: Dict = {
     earlierIntro: "Earlier and smaller builds — each links to its source.",
   },
   card: { cta: "Case study, diagrams & workflows", privateRepo: "private repo", source: "Source", live: "Live" },
+  experience: {
+    eyebrow: "Experience",
+    title: "15+ years from IT systems to platform engineering",
+    intro: "From airline and hotel systems to cloud infrastructure, full-stack products and AI-assisted automation.",
+    education: "Education",
+    certifications: "Certifications",
+    languages: "Languages",
+    download: "Download full CV (PDF)",
+    current: "Current",
+  },
   clients: {
     eyebrow: "Client websites",
     title: "Production sites for real businesses",
@@ -274,16 +285,16 @@ const ES: Dict = {
   badge: "Full-stack · Automatización con IA · Cloud — Medellín, CO",
   nav: [
     { href: "#work", label: "Proyectos" },
+    { href: "#experience", label: "Trayectoria" },
     { href: "#payments", label: "Pagos" },
     { href: "#clients", label: "Clientes" },
-    { href: "#process", label: "Proceso" },
     { href: "#about", label: "Sobre mí" },
     { href: "#contact", label: "Contacto" },
   ],
   switchTo: { label: "View in English", short: "EN" },
   theme: { light: "Cambiar a tema claro", dark: "Cambiar a tema oscuro" },
   menu: "Abrir menú de navegación",
-  hero: { primary: "Ver proyectos", secondary: "Contactarme" },
+  hero: { primary: "Ver proyectos", secondary: "Contactarme", cv: "Descargar CV" },
   stats: {
     systems: "sistemas con caso de estudio completo",
     tests: "pruebas automatizadas entre ellos",
@@ -312,6 +323,16 @@ const ES: Dict = {
     earlierIntro: "Proyectos anteriores y más pequeños — cada uno enlaza a su código.",
   },
   card: { cta: "Caso de estudio, diagramas y flujos", privateRepo: "repo privado", source: "Código", live: "En vivo" },
+  experience: {
+    eyebrow: "Trayectoria",
+    title: "Más de 15 años, de sistemas de TI a ingeniería de plataformas",
+    intro: "Desde sistemas de aerolínea y hotelería hasta infraestructura cloud, productos full-stack y automatización con IA.",
+    education: "Educación",
+    certifications: "Certificaciones",
+    languages: "Idiomas",
+    download: "Descargar CV completo (PDF)",
+    current: "Actual",
+  },
   clients: {
     eyebrow: "Sitios de clientes",
     title: "Sitios en producción para negocios reales",
