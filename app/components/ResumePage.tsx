@@ -379,7 +379,7 @@ function Ats({ locale }: { locale: Locale }) {
 
       <section>
         <Heading>{ui.languages}</Heading>
-        <p className="cv-body">{RESUME.languages.map((l) => `${l.name[locale]} (${l.level[locale]})`).join(" · ")}</p>
+        <p className="cv-body">{RESUME.languages.map((l) => `${l.name[locale]} — ${l.level[locale]}`).join(" · ")}</p>
       </section>
     </article>
   );

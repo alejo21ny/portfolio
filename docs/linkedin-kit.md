@@ -44,32 +44,49 @@ Texto listo para pegar en LinkedIn. Las fechas y cargos coinciden con `lib/resum
 >
 > Portafolio con arquitectura, flujos y modelo de datos de cada proyecto: https://fsdgportfolio.netlify.app/es/
 
-## 3. Experience / Experiencia
+## 3. Experience / Experiencia — lista de cambios
 
-Copy each block into *Add position*. Description = the bullets of `lib/resume.ts` for that
-role (same text as the CV). Skills = the stack line.
+Fechas oficiales = las del CV (`lib/resume.ts`). Esta tabla compara con lo que hay hoy en
+LinkedIn (capturas del 12 oct 2026) y dice qué hacer en cada entrada. La descripción de cada
+cargo = las viñetas del CV (botón *Descargar PDF* en el portafolio).
 
-| Title | Company | Employment type | Dates | Location |
-|---|---|---|---|---|
-| Founder & Technical Lead | GWork Systems | Self-employed | 2026 – Present | Medellín · Remote |
-| IT Manager — IT & Internal Systems | indie.io | Full-time | May 2026 – Sep 2026 | Remote |
-| Full-Stack Developer — WordPress | Major Media | Contract | 2026 (several months) | Remote |
-| Full-Stack Developer & API Technical Writer | Fiserv | Full-time | Jan 2026 – Apr 2026 | Remote |
-| Provisioning Manager — IT Infrastructure & Access | Steward | Full-time | Nov 2023 – Nov 2025 | Remote |
-| Full-Stack Developer & Team Lead | Virtual Latinos | Contract | Jan 2025 – Jun 2025 | Remote |
-| SEO Specialist & Web Developer | U.S.-based staffing company | Contract | Jul 2024 – Oct 2024 | Remote |
-| IT Specialist & Developer | SouthDesk | Full-time | May 2023 – Oct 2023 | Remote |
-| IT Specialist & Systems Integrator | Abatech | Full-time | Jul 2022 – Apr 2023 | Medellín |
-| Software Analyst, Developer & UX Collaborator | UNIFI BPO | Full-time | Oct 2021 – Jun 2022 | Medellín |
-| IT & Systems Specialist | CarNow | Full-time | Apr 2021 – Sep 2021 | Medellín |
-| Night Manager | The Charlee Hotel | Full-time | Sep 2020 – Mar 2021 | El Poblado, Medellín |
-| Founder & General Manager | Own hospitality business (Santo Tomás, La Castellana, Nutibara Home, Calasanz Home, Villa Claudia, Tu Apartamento, Conquistadores Home) | Self-employed | Oct 2013 – Mar 2020 | Medellín |
-| Systems Support | Agenciauto | Full-time | Jul 2013 – Sep 2013 | Medellín |
-| Software Developer & IT — .NET | Aerolínea de Antioquia (ADA) | Full-time | Feb 2011 – Jun 2013 | Medellín |
-| Night Auditor | Comfort Suites Laureles, San Joaquín, Sky Plus Best Western, Poblado Plaza | Full-time | 2010 – 2011 | Medellín |
-| Receptionist → Night Auditor → Front Desk Manager | Affinity Aparta Hotel / EE Hoteles | Full-time | 2005 – 2010 | Medellín |
+| # | Acción | Cargo (título a poner) | Empresa | Fechas a poner | Hoy en LinkedIn |
+|---|---|---|---|---|---|
+| 1 | ➕ Agregar | Founder & Technical Lead | GWork Systems | 2026 – actualidad | — |
+| 2 | ➕ Agregar | IT Manager — IT & Internal Systems | indie.io | may 2026 – sep 2026 | — |
+| 3 | ➕ Agregar | Full-Stack Developer — WordPress (contrato) | Major Media | 2026 (mismo mes inicio/fin aprox.) | — |
+| 4 | ✏️ Editar | Full-Stack Developer & API Technical Writer | Fiserv | ene 2026 – abr 2026 | ene – jun 2026 |
+| 5 | ✏️ Editar | Provisioning Manager — IT Infrastructure & Access | Steward Health Care | nov 2023 – nov 2025 | nov 2023 – dic 2025 |
+| 6 | ✏️ Editar | Full-Stack Developer & Team Lead (contrato) | Virtual Latinos | ene 2025 – jun 2025 | ene – nov 2023 |
+| 7 | ➕ Agregar | SEO Specialist & Web Developer (contrato) | (staffing de EE. UU.) | jul 2024 – oct 2024 | — |
+| 8 | ✏️ Editar | IT Specialist & Developer | SouthDesk | may 2023 – oct 2023 | sep 2023 – ene 2024 |
+| 9 | ✏️ Editar | IT Specialist & Systems Integrator | ABA Tech | jul 2022 – abr 2023 | ago 2022 – sep 2023 |
+| 10 | ✅ Dejar | Desarrollador front-end / WordPress | Admin Ops | nov 2022 – feb 2023 | igual |
+| 11 | ✅ Dejar | Desarrollador full stack | All Bookings | ene 2022 – jul 2022 | igual |
+| 12 | ✅ Dejar | Desarrollador y DBA SQL Server | Adage LATAM | ene 2022 – abr 2022 | igual |
+| 13 | ✏️ Editar | Software Analyst & Developer | UNIFI | oct 2021 – jun 2022 | nov 2021 – ago 2022 |
+| 14 | ✏️ Editar | System Analyst — asignado a CarNow (EE. UU.) | Solvo Global | abr 2021 – sep 2021 | nov 2020 – ago 2021 |
+| 15 | ✏️ Editar | Night Manager | The Charlee | sep 2020 – mar 2021 | dic 2019 – dic 2020 |
+| 16 | ✏️ Editar | **Founder & General Manager** | TuApartamento MDE (tu negocio) | oct 2013 – mar 2020 | "Especialista en TI", sep 2015 – dic 2019 |
+| 17 | ✏️ Editar | Full-Stack / Mobile Developer (freelance) | Independiente | mar 2017 – feb 2023 | mar 2017 – ago 2023 |
+| 18 | ➕ Agregar | Systems Support | Agenciauto | jul 2013 – sep 2013 | — |
+| 19 | ✏️ Editar | Software Developer & IT — .NET | ADA | feb 2011 – jun 2013 | feb 2013 – dic 2016 |
+| 20 | ✏️ Editar | Receptionist → Night Auditor → Front Desk Manager | Affinity / EE Hoteles (antes "Novelty Suites S.A.") | 2005 – 2011 | nov 2006 – oct 2012 |
+| 21 | ✅ Dejar | Gerente de oficina | Two Cousins Trucking Corp. (Nueva York) | ene 2003 – jun 2005 | igual |
 
-> Employment types are a best guess — adjust them in LinkedIn if they differ.
+Descripción sugerida para la #16 (tu negocio):
+
+> Founded and ran a short-term-rental and hotel operation in Medellín with seven properties —
+> Apartahotel Santo Tomás, Hotel La Castellana, Nutibara Home, Calasanz Home, Hostería Villa
+> Claudia, Tu Apartamento and Conquistadores Home. Owned operations, staff, finance, brand,
+> marketing and Airbnb/Booking.com distribution, and built the in-house booking and
+> property-management system (Laravel, MySQL). Closed in 2020 when the pandemic shut down tourism.
+
+Descripción sugerida para la #20:
+
+> Six years across the group's properties (Affinity, Alcázar de Oviedo, Rodeo, Novelty Suites),
+> from receptionist to night auditor and front desk manager; then night audit at Comfort Suites
+> Laureles, San Joaquín, Sky Plus Best Western and Poblado Plaza.
 
 ## 4. Featured / Destacado
 

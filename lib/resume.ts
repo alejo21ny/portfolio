@@ -55,7 +55,7 @@ export const RESUME = {
 
   summary: {
     en: "Senior full-stack developer and technical lead with 15+ years in software and IT — and 20+ years of work that includes founding and running my own hospitality business. I take products from an empty repository to production — architecture, backend, frontend, mobile, payments and infrastructure — and build the AI-assisted automation around them. Hands-on with PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker and Terraform. Having run a business end to end, I build with operations, customers and margins in mind. Bilingual English/Spanish, used to remote work with international teams.",
-    es: "Desarrollador full-stack senior y líder técnico con más de 15 años en software y TI — y más de 20 años de trayectoria que incluye fundar y dirigir mi propio negocio hotelero. Llevo productos desde un repositorio vacío hasta producción — arquitectura, backend, frontend, móvil, pagos e infraestructura — y construyo la automatización con IA a su alrededor. Trabajo con PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker y Terraform. Haber dirigido un negocio completo me hace construir pensando en la operación, el cliente y los márgenes. Bilingüe inglés/español, con experiencia remota en equipos internacionales.",
+    es: "Desarrollador full-stack senior y líder técnico con más de 15 años en software y TI — y más de 20 años de trayectoria que incluye fundar y dirigir mi propio negocio hotelero. Llevo productos desde un repositorio vacío hasta producción — arquitectura, backend, frontend, móvil, pagos e infraestructura — y construyo la automatización con IA a su alrededor. Trabajo con PHP/Laravel, React/TypeScript, Node.js, Python, PostgreSQL, AWS, Azure, Cloudflare, Docker y Terraform. Haber dirigido un negocio me hace construir pensando en la operación y el cliente. Bilingüe inglés/español.",
   } satisfies L,
 
   highlights: {
@@ -131,7 +131,7 @@ export const RESUME = {
           "Desarrollo full-stack para los sitios de clientes de una agencia: temas y plugins de WordPress a la medida, integraciones, rendimiento y mantenimiento.",
         ],
       },
-      stack: ["WordPress", "PHP", "JavaScript", "Performance"],
+      stack: [],
     },
     {
       company: "Fiserv",
@@ -208,7 +208,7 @@ export const RESUME = {
           "Desarrollé plugins a la medida para automatizar leads e integrar el CRM, y administré servidores (cPanel, Linux), rendimiento y soporte en producción.",
         ],
       },
-      stack: ["WordPress", "JavaScript", "Technical SEO", "Google Analytics", "Linux"],
+      stack: [],
     },
     {
       company: "SouthDesk",
@@ -227,7 +227,7 @@ export const RESUME = {
           "Construí y mantuve el sitio web de la empresa, responsive y enfocado en conversión, junto con otras tareas de desarrollo.",
         ],
       },
-      stack: ["IT support", "Systems administration", "WordPress"],
+      stack: [],
     },
     {
       company: "Abatech",
@@ -248,6 +248,27 @@ export const RESUME = {
       stack: ["Azure", "Docker", "CI/CD", "Python", "Bash", "Security"],
     },
     {
+      company: "Freelance & contract projects",
+      companyL: { en: "Freelance & contract projects", es: "Proyectos freelance y por contrato" },
+      role: { en: "Full-Stack Developer & DBA", es: "Desarrollador Full-Stack y DBA" },
+      location: { en: "Remote · concurrent", es: "Remoto · en paralelo" },
+      start: "2022-01",
+      end: "2023-02",
+      bullets: {
+        en: [
+          "Adage LATAM — SQL Server development and database administration.",
+          "All Bookings — full-stack development of the original accommodation marketplace (later rebuilt as All Bookings 2.0).",
+          "Admin Ops — front-end and WordPress development as web team lead (adminops.com).",
+        ],
+        es: [
+          "Adage LATAM — desarrollo en SQL Server y administración de bases de datos.",
+          "All Bookings — desarrollo full-stack del marketplace de alojamiento original (luego reconstruido como All Bookings 2.0).",
+          "Admin Ops — desarrollo front-end y WordPress como líder del equipo web (adminops.com).",
+        ],
+      },
+      stack: [],
+    },
+    {
       company: "UNIFI BPO",
       role: { en: "Software Analyst, Developer & UX Collaborator", es: "Analista de Software, Desarrollador y Colaborador UX" },
       location: { en: "Medellín", es: "Medellín" },
@@ -266,17 +287,18 @@ export const RESUME = {
       stack: ["React", "FastAPI", "MySQL", "Swagger", "Figma"],
     },
     {
-      company: "CarNow",
-      role: { en: "IT & Systems Specialist", es: "Especialista de TI y Sistemas" },
-      location: { en: "Medellín · U.S. company", es: "Medellín · empresa de EE. UU." },
+      company: "Solvo Global",
+      role: { en: "System Analyst", es: "Analista de Sistemas" },
+      location: { en: "Medellín", es: "Medellín" },
       start: "2021-04",
       end: "2021-09",
+      note: { en: "Assigned to CarNow, a U.S. company", es: "Asignado a CarNow, empresa de EE. UU." },
       bullets: {
         en: [
-          "Set up and supported the systems of a new U.S. company starting operations in Medellín: accounts, equipment, software and day-to-day user support.",
+          "Set up and supported the systems of a U.S. client starting operations in Medellín: accounts, equipment, software and bilingual day-to-day user support.",
         ],
         es: [
-          "Monté y soporté los sistemas de una nueva empresa estadounidense que iniciaba operaciones en Medellín: cuentas, equipos, software y soporte diario a usuarios.",
+          "Monté y soporté los sistemas de un cliente estadounidense que iniciaba operaciones en Medellín: cuentas, equipos, software y soporte bilingüe diario a usuarios.",
         ],
       },
       stack: [],
@@ -315,7 +337,7 @@ export const RESUME = {
         ],
         es: [
           "Fundé y dirigí una operación de alquiler temporal y hotelería con siete propiedades: Apartahotel Santo Tomás, Hotel La Castellana, Nutibara Home, Calasanz Home, Hostería Villa Claudia, Tu Apartamento y Conquistadores Home.",
-          "Responsable de todo el negocio: operación, personal, finanzas y administración, marca y marketing, y distribución en Airbnb y Booking.com.",
+          "Responsable de todo el negocio: operación, personal, finanzas, marca, marketing y distribución en Airbnb y Booking.com.",
           "Desarrollé el sistema propio de reservas y gestión de propiedades (Laravel, Bootstrap, JavaScript, MySQL) y los sitios web con disponibilidad en vivo; administré servidores, respaldos y TI.",
           "En paralelo, entregué proyectos web para pymes: tiendas WooCommerce, sitios WordPress multilingües (WPML) e integraciones con Stripe, Twilio y Firebase.",
         ],
@@ -351,28 +373,28 @@ export const RESUME = {
       start: "2013-07",
       end: "2013-09",
       line: {
-        en: "Short engagement in IT and systems support.",
-        es: "Vinculación corta en soporte de TI y sistemas.",
+        en: "IT and systems support.",
+        es: "Soporte de TI y sistemas.",
       },
     },
     {
-      company: "Comfort Suites Laureles · San Joaquín · Sky Plus Best Western · Poblado Plaza",
-      role: { en: "Night Auditor", es: "Auditor Nocturno" },
-      start: "2010",
-      end: "2011",
-      line: {
-        en: "Night audit, front desk and hotel systems across several Medellín hotels.",
-        es: "Auditoría nocturna, recepción y sistemas hoteleros en varios hoteles de Medellín.",
-      },
-    },
-    {
-      company: "Affinity Aparta Hotel / EE Hoteles",
+      company: "Affinity / EE Hoteles",
       role: { en: "Receptionist → Night Auditor → Front Desk Manager", es: "Recepcionista → Auditor Nocturno → Jefe de Recepción" },
       start: "2005",
-      end: "2010",
+      end: "2011",
       line: {
-        en: "Six years across the group's properties (Affinity, Alcázar de Oviedo, Rodeo, Novelty Suites and others): reception, night audit, front-desk leadership and hotel systems.",
-        es: "Seis años en las sedes del grupo (Affinity, Alcázar de Oviedo, Rodeo, Novelty Suites y otras): recepción, auditoría nocturna, jefatura de recepción y sistemas hoteleros.",
+        en: "Six years across the group's properties (Affinity, Alcázar de Oviedo, Rodeo, Novelty Suites), then night audit at Comfort Suites Laureles, San Joaquín, Sky Plus Best Western and Poblado Plaza.",
+        es: "Sedes Affinity, Alcázar de Oviedo, Rodeo y Novelty Suites; luego auditoría en Comfort Suites, San Joaquín, Sky Plus Best Western y Poblado Plaza.",
+      },
+    },
+    {
+      company: "Two Cousins Trucking Corp.",
+      role: { en: "Office Manager — New York", es: "Gerente de Oficina — Nueva York" },
+      start: "2003-01",
+      end: "2005-06",
+      line: {
+        en: "Office administration, billing and office systems for a New York trucking company.",
+        es: "Administración, facturación y sistemas de oficina de una transportadora en Nueva York.",
       },
     },
   ] as EarlierJob[],
@@ -478,7 +500,7 @@ export const RESUME_UI = {
     summary: "Profile",
     highlights: "Highlights",
     experience: "Experience",
-    earlier: "Earlier experience — hospitality & IT (2005 – 2013)",
+    earlier: "Earlier experience (2003 – 2013)",
     projects: "Selected projects",
     projectsNote: "Architecture, workflows and data models for each one are in the portfolio.",
     skills: "Skills",
@@ -500,7 +522,7 @@ export const RESUME_UI = {
     summary: "Perfil",
     highlights: "Logros destacados",
     experience: "Experiencia",
-    earlier: "Experiencia anterior — hotelería y TI (2005 – 2013)",
+    earlier: "Experiencia anterior (2003 – 2013)",
     projects: "Proyectos destacados",
     projectsNote: "Arquitectura, flujos y modelo de datos de cada uno en el portafolio.",
     skills: "Habilidades",

@@ -86,7 +86,7 @@ function build(locale) {
     new Paragraph({ children: [new TextRun({ text: RESUME.certifications.map((cert) => `${cert.name} (${cert.issuer}, ${cert.year})`).join(" · "), size: 19 })] }),
 
     heading(ui.languages),
-    new Paragraph({ children: [new TextRun({ text: RESUME.languages.map((l) => `${l.name[locale]} (${l.level[locale]})`).join("  ·  "), size: 20 })] }),
+    new Paragraph({ children: [new TextRun({ text: RESUME.languages.map((l) => `${l.name[locale]} — ${l.level[locale]}`).join("  ·  "), size: 20 })] }),
   ];
 
   return new Document({
